@@ -22,7 +22,7 @@ export const Footer = () => (
         </div>
         <div className="flex flex-col">
           <ul className="flex flex-col font-bold tracking-[-0.04em] text-sm leading-[1.0] *:py-2">
-            {QUICK_LINKS.map((o, i) => (
+            {SOCIALS.map((o, i) => (
               <Link className="not-first:opacity-50 not-first:font-medium" key={i} href={o.href ?? "/"}>
                 {o.label}
               </Link>
@@ -31,7 +31,7 @@ export const Footer = () => (
         </div>
         <div className="flex flex-col">
           <ul className="flex flex-col font-bold tracking-[-0.04em] text-sm leading-[1.0] *:py-2">
-            {QUICK_LINKS.map((o, i) => (
+            {RESOURCES.map((o, i) => (
               <Link className="not-first:opacity-50 not-first:font-medium" key={i} href={o.href ?? "/"}>
                 {o.label}
               </Link>
@@ -58,7 +58,21 @@ export const Footer = () => (
 const QUICK_LINKS = [
   { label: "QUICK LINKS" },
   { label: "Home", href: "/" },
-  { label: "Products", href: "/" },
-  { label: "About", href: "/" },
-  { label: "Contact", href: "/" },
+  { label: "Products", href: "/products" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
+
+const SOCIALS = [
+  { label: "SOCIALS" },
+  { label: "Facebook", href: "/" },
+  { label: "Instagram", href: "/" },
+  { label: "Youtube", href: "/" },
+  { label: "X (Twitter)", href: "/" },
+];
+
+const RESOURCES = [
+  { label: "RESOUCES" },
+  { label: "Blog", href: "/blog" },
+  { label: "Brochure", href: "/" },
 ];
