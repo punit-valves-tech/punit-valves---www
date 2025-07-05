@@ -18,7 +18,7 @@ export default function Section({
     <ZStack {...restProps.sectionProps}>
       {/* BEHIND GUIDELINES */}
       {restProps.beforeGuides ?? <></>}
-
+      
       {/* GUIDELINES */}
       {guides ? (
         <div className="w-full h-full m-auto max-w-6xl px-2">

@@ -1,9 +1,20 @@
+import { Text } from "@/components/atoms/text";
 import { Headline } from "@/components/molecules/headline";
 import { CTA } from "@/components/organisms/cta";
 import { Page } from "@/components/organisms/page";
 import Section from "@/components/utils/section";
+import { sanityFetch } from "@/lib/sanity/live";
+import { allArticlesQuery } from "@/lib/sanity/queries";
+import Link from "next/link";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export const revalidate = 0;
+
+export default async function Blog() {
+    const [{ data: articles }] = await Promise.all([
+      sanityFetch({ query: allArticlesQuery }),
+    ]);
   return (
     <Page>
       <Section>
@@ -24,32 +35,36 @@ export default function Home() {
 
       <Section>
         <div className="grid grid-cols-2">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((o, i) => (
-            <div
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+          {articles.map((o: any, i: any) => (
+            <Link
               key={i}
+              href={`/blog/${o.slug}`}
               className="w-full border-t border-t-[var(--grid-color)] nth-last-2:border-b nth-last-2:border-b-[var(--grid-color)] last:border-b last:border-b-[var(--grid-color)]"
             >
-              <div className="h-64 flex flex-col bg-white mx-1 px-3 py-4">
+              <div className="h-72 flex flex-col bg-white mx-1 px-3 py-4">
               <div className="w-full flex flex-row items-center">
-                <div className=" justify-start text-black text-xs font-medium font-['Inter'] leading-none">
-                  Arth Gajjar
-                </div>
+                <Text as="p" scale="p3" font="inter" className="text-[var(--secondary-color)] font-medium tracking-normal">
+                  {o.author.name}
+                </Text>
                 <div className="flex-grow" />
-                <div className="justify-end text-neutral-500 text-xs  leading-none">
+                <Text as="p" scale="p3" font="inter" className="text-[var(--secondary-color)] font-medium tracking-normal">
                   June 2, 2025 /{" "}
                   <span className="text-red-700">Engineering</span>
-                </div>
+                </Text>
+                
+
               </div>
               <div className="flex-grow" />
-              <div className="text-black text-xl font-semibold font-['Inter'] leading-7">
-                Why Leak-Proof Valves Are the Backbone of Modern Industry
-              </div>
-              <div className="text-neutral-500 text-sm font-medium font-['Inter'] leading-tight">
+              <Text as="h2" scale="h7" font="inter" className="pr-8 font-semibold tracking-normal">
+                {o.title}
+              </Text>
+              <Text as="p" scale="p1" font="inter" className="pr-8 mt-2 text-[var(--secondary-color)] font-medium tracking-normal">
                 Discover how leak-proof designs ensure zero downtime and maximum
                 safety in high-stakes industries like oil and gas.
+              </Text>
               </div>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </Section>

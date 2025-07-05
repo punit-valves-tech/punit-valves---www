@@ -8,7 +8,11 @@
   --font-ibm-plex: "IBM Plex Mono", sans-serif;
   
   /* COLORS */
-  --grid-color: #F2f2f2;
+  --grid-color: #e4e7ec;
   --primary-color: #B40102;
-  --secondary-color: #707070;
+  --secondary-color: #8f99a8;
+}
+
+body {
+  background-color: #FFFFFF;
 }

@@ -10,6 +10,10 @@ export const CompanyOverview = () => (
         label={<>ABOUT US</>}
         title={<>Company Overview</>}
         desc={<>We are a leading industrial valve manufacturer with a global perspective and local expertise. We provide deeply localized service and highly customized production to meet the unique demands of various industries.</>}
+        primary={{
+          type:"secondary",
+          children: <>LEARN MORE</>
+        }}
       />
       <div className="mt-8 grid grid-cols-2 md:grid-cols-4">
         {[1, 0, 1, 0].map((o, i) => (
