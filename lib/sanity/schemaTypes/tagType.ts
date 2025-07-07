@@ -1,11 +1,11 @@
-import { TagIcon } from "@sanity/icons";
+import { HashIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const tagType = defineType({
   name: "tag",
   title: "Tag",
   type: "document",
-  icon: TagIcon,
+  icon: HashIcon,
   fields: [
     defineField({
       name: "title",

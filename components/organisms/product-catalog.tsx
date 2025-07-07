@@ -2,6 +2,7 @@ import { Headline } from "@/components/molecules/headline";
 import Section from "@/components/utils/section";
 import { Text } from "../atoms/text";
 import { Button } from "../atoms/button";
+import Image from "next/image";
 
 export const ProductCatalog = () => (
   <Section>
@@ -23,7 +24,15 @@ export const ProductCatalog = () => (
       <div className="py-8 flex flex-row px-4 gap-4 overflow-x-auto">
         {new Array(4).fill(0).map((o, i) => (
           <div key={i} className="aspect-square border bg-white drop-shadow-xl flex flex-col">
-            <div className="h-96 w-[30rem] m-4 border border-[var(--grid-color)] bg-white overflow-hidden"></div>
+            <div className="h-96 w-[30rem] m-4 border border-[var(--grid-color)] bg-white overflow-hidden">
+              <Image
+                            alt="product valve"
+                            src="/valve.jpg"
+                            width="640"
+                            height="640"
+                            className="object-cover h-full"
+                          />
+            </div>
             <div className="pb-4 flex flex-col flex-grow w-full">
               <div className="px-4 pb-2 flex flex-row">
                 <Text as="p" scale="p3" font="ibm-plex" className="uppercase">

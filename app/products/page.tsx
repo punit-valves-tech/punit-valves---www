@@ -6,6 +6,7 @@ import { Page } from "@/components/organisms/page";
 import Section from "@/components/utils/section";
 import Image from "next/image";
 import { VALVES } from "./products";
+import Link from "next/link";
 
 export default function Home() {
 
@@ -29,15 +30,16 @@ export default function Home() {
 
       <Section>
         <div className="grid grid-cols-4">
-          <div className="col-span-1">
+          {/* <div className="col-span-1">
 
-          </div>
-          <div className="col-span-3 grid grid-cols-3 gap-y-8">
+          </div> */}
+          <div className="col-span-4 grid grid-cols-4 gap-y-8">
 
           {VALVES.map((o, i) => (
-            <div
+            <Link
+              href="/products/aluminum-wafer-type-centric-butterfly-valve"
               key={i}
-              className="p-4 border-y border-y-[var(--grid-color)]  flex flex-col"
+              className="bg-[var(--hover-color)] hover:border hover:border-black hover:bg-white hover:drop-shadow-2xl border-x border-x-transparent p-4 border-y border-y-[var(--grid-color)]  flex flex-col"
             >
               <div className="w-full aspect-square border border-[var(--grid-color)] bg-white overflow-hidden">
                 <Image alt="product valve" src="/valve.jpg" width="640" height="640" className="object-cover aspect-square w-full" />
@@ -72,7 +74,7 @@ export default function Home() {
                   </Button>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
           </div>
 

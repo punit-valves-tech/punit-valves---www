@@ -30,9 +30,12 @@ export const allWorksQuery = defineQuery(`
     }
   `);
 
-export const workQuery = defineQuery(`
-    *[_type == "work" && slug.current == $slug] [0] {
-      sections,
-      ${articleFields}
+export const productQuery = defineQuery(`
+    *[_type == "product" && slug.current == $slug] [0] {
+      _id,
+      name,
+      image,
+      desc,
+      specs
     }
   `);

@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
+import { ArrowRightIcon } from "lucide-react";
 
 const buttonVariants = cva("", {
     variants: {
@@ -14,6 +15,6 @@ const buttonVariants = cva("", {
 export const Button = ({ type = "secondary", className, children }: any) => (
 
     <div className={cn(buttonVariants({ type }), "text-nowrap ellipsis drop-shadow-xl px-4 flex flex-row items-center justify-between h-10 text-xs font-(family-name:--font-archivo)", className)}>
-        {children ?? "DOWNLOAD BROCHURE"}
+        {children ?? "DOWNLOAD BROCHURE"} <ArrowRightIcon className="h-4 -mr-2 item-end" />
     </div>
 )
