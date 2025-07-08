@@ -11,7 +11,11 @@ import { allProductsQuery } from "@/lib/sanity/queries";
 import { sanityFetch } from "@/lib/sanity/live";
 import { ArrowRightIcon } from "lucide-react";
 
-export default async function Home() {
+export const dynamic = "force-dynamic";
+
+export const revalidate = 0;
+
+export default async function Products() {
   const [{ data: products }] = await Promise.all([
     sanityFetch({ query: allProductsQuery }),
   ]);
