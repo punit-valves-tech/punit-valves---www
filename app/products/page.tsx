@@ -8,7 +8,7 @@ import Section from "@/components/utils/section";
 import Image from "next/image";
 import Link from "next/link";
 import { allProductsQuery } from "@/lib/sanity/queries";
-import { sanityFetch } from "@/lib/sanity/live";
+import { sanityFetch, urlFor } from "@/lib/sanity/live";
 import { ArrowRightIcon } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -53,7 +53,7 @@ export default async function Products() {
                 <div className="w-full aspect-square border border-[var(--grid-color)] bg-white overflow-hidden">
                   <Image
                     alt="product valve"
-                    src="/valve.jpg"
+                    src={urlFor(o.image).url()}
                     width="640"
                     height="640"
                     className="object-cover aspect-square w-full"
