@@ -30,7 +30,7 @@ export const Guides: React.FC = () => (
         x2="0.5"
         y2="100%"
         stroke="currentColor"
-        stroke-linecap="round"
+        strokeLinecap="round"
       ></line>
     </svg>
     <svg width="1" className="h-full text-subtle-stroke -left-px">
@@ -40,8 +40,8 @@ export const Guides: React.FC = () => (
         x2="0.5"
         y2="100%"
         stroke="currentColor"
-        stroke-dasharray="4 6"
-        stroke-linecap="round"
+        strokeDasharray="4 6"
+        strokeLinecap="round"
       ></line>
     </svg>
     <svg width="1" className="h-full text-subtle-stroke -left-px">
@@ -51,8 +51,8 @@ export const Guides: React.FC = () => (
         x2="0.5"
         y2="100%"
         stroke="currentColor"
-        stroke-dasharray="4 6"
-        stroke-linecap="round"
+        strokeDasharray="4 6"
+        strokeLinecap="round"
       ></line>
     </svg>
     <svg width="1" className="h-full text-subtle-stroke -left-px">
@@ -62,8 +62,8 @@ export const Guides: React.FC = () => (
         x2="0.5"
         y2="100%"
         stroke="currentColor"
-        stroke-dasharray="4 6"
-        stroke-linecap="round"
+        strokeDasharray="4 6"
+        strokeLinecap="round"
       ></line>
     </svg>
     <svg width="1" className="h-full text-subtle-stroke -left-px">
@@ -73,7 +73,7 @@ export const Guides: React.FC = () => (
         x2="0.5"
         y2="100%"
         stroke="currentColor"
-        stroke-linecap="round"
+        strokeLinecap="round"
       ></line>
     </svg>
     {/* ))} */}

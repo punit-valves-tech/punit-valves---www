@@ -6,6 +6,7 @@ import { BlockContent } from "@/components/utils/portable-text";
 import Section from "@/components/utils/section";
 import { sanityFetch, urlFor } from "@/lib/sanity/live";
 import { productQuery } from "@/lib/sanity/queries";
+import { ArrowDownToLineIcon, ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -38,9 +39,8 @@ export default async function ArticlePage(props: any) {
               className="object-cover aspect-square w-full"
             />
           </div>
-          <div className="flex flex-col">
+          <div className="px-4 flex flex-col h-full">
             <div className="flex-grow min-h-20"></div>
-            <div className="px-4">
               <Text as="p" scale="p3" font="ibm-plex" className="">
                 SINCE 1976
               </Text>
@@ -52,7 +52,7 @@ export default async function ArticlePage(props: any) {
               >
                 {product?.name}
               </Text>
-              <Text
+              {/* <Text
                 as="p"
                 scale="p1"
                 font="inter"
@@ -60,20 +60,26 @@ export default async function ArticlePage(props: any) {
               >
                 We has been delivering high-quality industrial valve solutions
                 with precision engineering and exceptional performance.
-              </Text>
-              <div className=" mt-6 flex flex-col md:flex-row gap-4">
-                <Button type="primary" />
-                <Button type="secondary" />
-              </div>
+              </Text> */}
+              <div className="flex-grow" />
+              <div className="my-6 flex flex-col md:flex-row gap-4">
+                <Button type="primary" href="/brochure">
+                  DOWNLOAD BROCHURE{" "}
+                  <ArrowDownToLineIcon className="ml-2 h-4 -mr-2 item-end" />
+                </Button>
+                <Button type="secondary" href="/products">
+                  VIEW ALL PRODUCTS{" "}
+                  <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" />
+                </Button>
             </div>
-            <div className="flex-grow min-h-20"></div>
+            {/* <div className="flex-grow min-h-20"></div> */}
           </div>
         </div>
       </Section>
 
       {/* DESC */}
       <Section>
-        <div className="grid grid-cols-2 border-t border-t-[var(--grid-color)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 border-t border-t-[var(--grid-color)]">
           <div className="px-4 py-8">
             <Text as="h2" font="expanded" scale="h7">
               PRODUCT DESCRIPTION
@@ -96,7 +102,7 @@ export default async function ArticlePage(props: any) {
 
       {/* SPECS */}
       <Section>
-        <div className="grid grid-cols-2 border-t border-t-[var(--grid-color)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 border-t border-t-[var(--grid-color)]">
           <div className="px-4 py-8">
             <Text as="h2" font="expanded" scale="h7">
               TECHNICAL SPECIFICATIONS
@@ -107,9 +113,25 @@ export default async function ArticlePage(props: any) {
               <tbody className="w-full flex flex-col">
                 {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                 {product?.specs?.map((o: any, i: any) => (
-                  <tr className="w-full grid grid-cols-8 py-4 px-4 last:border-b last:border-b-[var(--grid-color)] border-t border-t-[var(--grid-color)]" key={i}>
-                    <td className="col-span-3"><Text as="p" scale="p3" font="ibm-plex" className="uppercase">{o.label}</Text></td>
-                    <td className="col-span-5"><Text as="p" scale="p3" font="ibm-plex">{o.value}</Text></td>
+                  <tr
+                    className="w-full grid grid-cols-8 py-4 px-4 last:border-b last:border-b-[var(--grid-color)] border-t border-t-[var(--grid-color)]"
+                    key={i}
+                  >
+                    <td className="col-span-3">
+                      <Text
+                        as="p"
+                        scale="p3"
+                        font="ibm-plex"
+                        className="uppercase"
+                      >
+                        {o.label}
+                      </Text>
+                    </td>
+                    <td className="col-span-5">
+                      <Text as="p" scale="p3" font="ibm-plex">
+                        {o.value}
+                      </Text>
+                    </td>
                   </tr>
                 ))}
               </tbody>

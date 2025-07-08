@@ -43,7 +43,7 @@ export default async function Products() {
           {/* <div className="col-span-1">
 
           </div> */}
-          <div className="col-span-4 grid grid-cols-4 gap-y-8">
+          <div className="col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8">
             {products.map((o: any, i: any) => (
               <Link
                 href={`/products/${o.slug}`}

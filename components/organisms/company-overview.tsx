@@ -13,13 +13,13 @@ export const CompanyOverview = () => (
         title={<>Company Overview</>}
         desc={<>We are a leading industrial valve manufacturer with a global perspective and local expertise. We provide deeply localized service and highly customized production to meet the unique demands of various industries.</>}
         primary={{
-          type:"secondary",
+          type:"primary",
           children: <>LEARN MORE <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" /></>,
           href: "/about"
           
         }}
       />
-      <div className="mt-8 grid grid-cols-2 md:grid-cols-4">
+      <div className="hidden md:grid mt-8 grid grid-cols-2 md:grid-cols-4">
         {[STATS[0], 0, STATS[1], 0].map((o: any, i: any) => (
           <div key={i} className={cn(o ? "flex flex-col justify-between" : "invisible", "aspect-square border-y border-y-[var(--grid-color)] px-4 py-8")}>
             <Text as="p" scale="h2" font="ibm-plex" className="">{o.stat}</Text>
@@ -28,6 +28,15 @@ export const CompanyOverview = () => (
         ))}
         {[0, STATS[2], 0, STATS[3]].map((o: any, i: any) => (
           <div key={i} className={cn(o ? "flex flex-col justify-between" : "invisible", "-mt-[1px] aspect-square border-y border-y-[var(--grid-color)] px-4 py-8")}>
+            <Text as="p" scale="h2" font="ibm-plex" className="">{o.stat}</Text>
+            <Text as="p" scale="p1" font="archivo" className="text-[var(--secondary-color)] uppercase">{o.desc}</Text>
+          </div>
+        ))}
+      </div>
+
+      <div className="md:hidden mt-8 grid grid-cols-2 md:grid-cols-4">
+        {STATS.map((o: any, i: any) => (
+          <div key={i} className={cn(o ? "flex flex-col justify-between" : "invisible", "aspect-square border-y border-y-[var(--grid-color)] px-4 py-8")}>
             <Text as="p" scale="h2" font="ibm-plex" className="">{o.stat}</Text>
             <Text as="p" scale="p1" font="archivo" className="text-[var(--secondary-color)] uppercase">{o.desc}</Text>
           </div>

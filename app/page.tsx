@@ -1,3 +1,4 @@
+import { Carousel } from "@/components/organisms/carousel";
 import { CompanyOverview } from "@/components/organisms/company-overview";
 import { CTA } from "@/components/organisms/cta";
 import { HeroV0 } from "@/components/organisms/hero-v0";
@@ -17,6 +18,8 @@ export default function Home() {
 
       {/* PRODUCT CATALOG */}
       <ProductCatalog />
+
+      <Carousel />
 
       {/* COMPANY OVERVIEW */}
       <CompanyOverview />

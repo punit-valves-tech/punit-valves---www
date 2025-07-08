@@ -6,6 +6,7 @@ import { BlockContent } from "@/components/utils/portable-text";
 import Section from "@/components/utils/section";
 import { sanityFetch, urlFor } from "@/lib/sanity/live";
 import { articleQuery } from "@/lib/sanity/queries";
+import { ArrowLeftIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -17,27 +18,29 @@ export const revalidate = 0;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function ArticlePage(props: any) {
   const params = await props.params;
-    const [{ data: article }] = await Promise.all([
-      sanityFetch({ query: articleQuery, params }),
-    ]);
+  const [{ data: article }] = await Promise.all([
+    sanityFetch({ query: articleQuery, params }),
+  ]);
 
-    if (!article?._id) {
-      return notFound();
-    }
+  if (!article?._id) {
+    return notFound();
+  }
 
   return (
     <Page>
       <Section>
         <div className="flex flex-col py-20">
           <div className="px-4">
-
-        <Link href="/blog">
-          <Text as="p" scale="p3" font="ibm-plex" className="uppercase">Blog</Text>
-        </Link>
+            <Link href="/blog" className="flex flex-row">
+              <ArrowLeftIcon className="h-4 mr-2" />
+              <Text as="p" scale="p3" font="ibm-plex" className="uppercase">
+                Blog
+              </Text>
+            </Link>
           </div>
-        <Headline
-          title={article.title}
-          // desc="Stay ahead in the world of flow control. Explore industry trends, technical guides, and innovative solutions from our experts."
+          <Headline
+            title={article.title}
+            // desc="Stay ahead in the world of flow control. Explore industry trends, technical guides, and innovative solutions from our experts."
           />
           <Image
             className="mt-10 w-full aspect-[16/9] object-cover"
@@ -46,9 +49,12 @@ export default async function ArticlePage(props: any) {
             height="1080"
             width="1920"
           />
-          </div>
+        </div>
       </Section>
-      <Section guides={false} sectionProps={{ className: "border-y border-y-[var(--grid-color)]"}}>
+      <Section
+        guides={false}
+        sectionProps={{ className: "border-y border-y-[var(--grid-color)]" }}
+      >
         <div className="w-full m-auto max-w-xl py-8">
           <div
             className={`px-2 
@@ -59,7 +65,6 @@ export default async function ArticlePage(props: any) {
           `}
           >
             <BlockContent value={article.body} />
-            
           </div>
         </div>
       </Section>

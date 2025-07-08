@@ -21,7 +21,7 @@ export default async function Blog() {
         <div className="py-20">
           <Headline
             label="BLOG"
-            title={<>NEWS AND UPDATES</>}
+            title={<>ARTICLES AND UPDATES</>}
             desc={
               <>
                 Stay ahead in the world of flow control. Explore industry
@@ -34,7 +34,7 @@ export default async function Blog() {
       </Section>
 
       <Section>
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           {articles.map((o: any, i: any) => (
             <Link
