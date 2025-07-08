@@ -1,6 +1,7 @@
 import { Button } from "@/components/atoms/button";
 import { Text } from "@/components/atoms/text";
 import Section from "@/components/utils/section";
+import { ArrowDownToLineIcon, ArrowRightIcon } from "lucide-react";
 
 export const HeroV0 = () => (
   <Section>
@@ -13,8 +14,8 @@ export const HeroV0 = () => (
           <Text as="h1" scale="h4" font="expanded" className="-ml-0.5 mt-2 uppercase">Engineering <br />for <span className="text-[var(--primary-color)]">precision</span>,<br /><span className="text-[var(--primary-color)]">control</span> and<br /><span className="text-[var(--primary-color)]">reliability</span>.</Text>
           <Text as="p" scale="p1" font="inter" className=" mt-4 font-medium tracking-[-0.01em] leading-[135%] text-[var(--secondary-color)]">We has been delivering high-quality industrial valve solutions with precision engineering and exceptional performance.</Text>
           <div className=" mt-6 flex flex-col md:flex-row gap-4">
-            <Button type="primary">DOWNLOAD BROCHURE</Button>
-            <Button type="secondary">VIEW ALL PRODUCTS</Button>
+            <Button type="primary" href="/brochure">DOWNLOAD BROCHURE <ArrowDownToLineIcon className="ml-2 h-4 -mr-2 item-end" /></Button>
+            <Button type="secondary" href="/products">VIEW ALL PRODUCTS <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" /></Button>
           </div>
         </div>
         <div className="flex-grow min-h-20"></div>

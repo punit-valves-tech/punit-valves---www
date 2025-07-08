@@ -3,6 +3,7 @@ import Section from "@/components/utils/section";
 import { Text } from "../atoms/text";
 import { Button } from "../atoms/button";
 import Image from "next/image";
+import { ArrowRightIcon } from "lucide-react";
 
 export const ProductCatalog = () => (
   <Section>
@@ -18,7 +19,8 @@ export const ProductCatalog = () => (
         }
         primary={{
           type:"secondary",
-          children: <>VIEW ALL PRODUCTS</>
+          children: <>VIEW ALL PRODUCTS <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" /></>,
+          href: "/products"
         }}
       />
       <div className="py-8 flex flex-row px-4 gap-4 overflow-x-auto">

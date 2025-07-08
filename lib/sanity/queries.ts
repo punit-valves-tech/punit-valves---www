@@ -24,14 +24,31 @@ export const allArticlesQuery = defineQuery(`
     }
   `);
 
-export const allWorksQuery = defineQuery(`
-    *[_type == "work" && defined(slug.current)] | order(date desc, _updatedAt desc) {
-      ${articleFields}
+export const allProductsQuery = defineQuery(`
+    *[_type == "product" && defined(slug.current)] | order(date desc, _updatedAt desc) {
+      _id,
+      "slug": slug.current,
+      name,
+      image,
+      desc,
+    }
+  `);
+
+export const allArticleSlugsQuery = defineQuery(`
+    *[_type == "article" && defined(slug.current)] | order(date desc, _updatedAt desc) {
+      "slug": slug.current
+    }
+  `);
+
+export const allProductSlugsQuery = defineQuery(`
+    *[_type == "product" && defined(slug.current)] | order(date desc, _updatedAt desc) {
+      "slug": slug.current
     }
   `);
 
 export const productQuery = defineQuery(`
     *[_type == "product" && slug.current == $slug] [0] {
+      "slug": slug.current,
       _id,
       name,
       image,

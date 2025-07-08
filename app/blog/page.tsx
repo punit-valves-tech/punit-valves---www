@@ -40,7 +40,7 @@ export default async function Blog() {
             <Link
               key={i}
               href={`/blog/${o.slug}`}
-              className="w-full border-t border-t-[var(--grid-color)] nth-last-2:border-b nth-last-2:border-b-[var(--grid-color)] last:border-b last:border-b-[var(--grid-color)]"
+              className="w-full hover:bg-white hover:border! hover:border-black! hover:drop-shadow-2xl! border border-transparent border-t border-t-[var(--grid-color)] nth-last-2:border-b nth-last-2:border-b-[var(--grid-color)] last:border-b last:border-b-[var(--grid-color)]"
             >
               <div className="h-72 flex flex-col bg-white mx-1 px-3 py-4">
               <div className="w-full flex flex-row items-center">

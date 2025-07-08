@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from "@/components/atoms/button";
 import { Text } from "@/components/atoms/text";
 import { Headline } from "@/components/molecules/headline";
@@ -5,10 +6,15 @@ import { CTA } from "@/components/organisms/cta";
 import { Page } from "@/components/organisms/page";
 import Section from "@/components/utils/section";
 import Image from "next/image";
-import { VALVES } from "./products";
 import Link from "next/link";
+import { allProductsQuery } from "@/lib/sanity/queries";
+import { sanityFetch } from "@/lib/sanity/live";
+import { ArrowRightIcon } from "lucide-react";
 
-export default function Home() {
+export default async function Home() {
+  const [{ data: products }] = await Promise.all([
+    sanityFetch({ query: allProductsQuery }),
+  ]);
 
   return (
     <Page>
@@ -34,50 +40,65 @@ export default function Home() {
 
           </div> */}
           <div className="col-span-4 grid grid-cols-4 gap-y-8">
-
-          {VALVES.map((o, i) => (
-            <Link
-              href="/products/aluminum-wafer-type-centric-butterfly-valve"
-              key={i}
-              className="bg-[var(--hover-color)] hover:border hover:border-black hover:bg-white hover:drop-shadow-2xl border-x border-x-transparent p-4 border-y border-y-[var(--grid-color)]  flex flex-col"
-            >
-              <div className="w-full aspect-square border border-[var(--grid-color)] bg-white overflow-hidden">
-                <Image alt="product valve" src="/valve.jpg" width="640" height="640" className="object-cover aspect-square w-full" />
-              </div>
-              <div className="pt-4 flex flex-col flex-grow w-full">
-                <div className="pb-2 flex flex-row text-[var(--secondary-color)]">
-                  <Text as="p" scale="p3" font="ibm-plex" className="uppercase">
-                    {o.valveType}
-                  </Text>
-                  <div className="flex-grow" />
-                  <Text as="p" scale="p3" font="ibm-plex" className="uppercase">
-                    #REF1089
-                  </Text>
+            {products.map((o: any, i: any) => (
+              <Link
+                href={`/products/${o.slug}`}
+                key={i}
+                className="bg-[var(--hover-color)] hover:border hover:border-black hover:bg-white hover:drop-shadow-2xl border-x border-x-transparent p-4 border-y border-y-[var(--grid-color)]  flex flex-col"
+              >
+                <div className="w-full aspect-square border border-[var(--grid-color)] bg-white overflow-hidden">
+                  <Image
+                    alt="product valve"
+                    src="/valve.jpg"
+                    width="640"
+                    height="640"
+                    className="object-cover aspect-square w-full"
+                  />
                 </div>
-                <div className="flex-grow" />
+                <div className="pt-4 flex flex-col flex-grow w-full">
+                  <div className="pb-2 flex flex-row text-[var(--secondary-color)]">
+                    <Text
+                      as="p"
+                      scale="p3"
+                      font="ibm-plex"
+                      className="uppercase"
+                    >
+                      {o.valveType}
+                    </Text>
+                    <div className="flex-grow" />
+                    <Text
+                      as="p"
+                      scale="p3"
+                      font="ibm-plex"
+                      className="uppercase"
+                    >
+                      #REF1089
+                    </Text>
+                  </div>
+                  <div className="flex-grow" />
 
-                <Text
-                  as="h3"
-                  scale="p1"
-                  font="inter"
-                  className="py-4 font-semibold"
-                >
-                  {o.subType}
-                </Text>
+                  <Text
+                    as="h3"
+                    scale="p1"
+                    font="inter"
+                    className="py-4 font-semibold"
+                  >
+                    {o.name}
+                  </Text>
 
-                <div className="flex flex-col gap-4">
-                  {/* <Button className="md:flex-grow" type="primary">
+                  <div className="flex flex-col gap-4">
+                    {/* <Button className="md:flex-grow" type="primary">
                     TECHNICAL SPECIFICATIONS
                   </Button> */}
-                  <Button className="md:flex-grow" type="secondary">
-                    LEARN MORE
-                  </Button>
+                    <Button className="md:flex-grow" type="secondary">
+                      LEARN MORE{" "}
+                      <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" />
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
           </div>
-
         </div>
       </Section>
 
