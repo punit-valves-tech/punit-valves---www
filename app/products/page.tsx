@@ -67,7 +67,7 @@ export default async function Products() {
                       font="ibm-plex"
                       className="uppercase"
                     >
-                      {o.valveType}
+                      {o?.class?.title}
                     </Text>
                     <div className="flex-grow" />
                     <Text
@@ -76,7 +76,7 @@ export default async function Products() {
                       font="ibm-plex"
                       className="uppercase"
                     >
-                      #REF1089
+                      #REF{o._id.substr(1, 4)}
                     </Text>
                   </div>
                   <div className="flex-grow" />

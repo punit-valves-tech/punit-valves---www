@@ -15,6 +15,8 @@ export default async function Blog() {
     const [{ data: articles }] = await Promise.all([
       sanityFetch({ query: allArticlesQuery }),
     ]);
+
+    // const formatArticleDate = (date: string) => format(new Date(date), 'MMM dd, yyyy');
   return (
     <Page>
       <Section>

@@ -8,6 +8,8 @@ const articleFields = /* groq */ `
   excerpt,
   mainImage,
   "date": coalesce(date, _updatedAt),
+  publishedAt,
+  lastUpdatedAt,
   "author": author->{name, image},
 `;
 
@@ -28,6 +30,7 @@ export const allProductsQuery = defineQuery(`
     *[_type == "product" && defined(slug.current)] | order(date desc, _updatedAt desc) {
       _id,
       "slug": slug.current,
+      class-> { "slug": slug.current, title },
       name,
       image,
       desc,

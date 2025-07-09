@@ -13,8 +13,8 @@ export const Footer = () => (
               <Image
                 width="300"
                 height="100"
-                className="h-12 w-auto"
-                src="/LOGO_PUNIT.png"
+                className="h-16 w-auto"
+                src="/logo-punit.png"
                 alt="Punit Valves Logo"
               />
             </Link>
@@ -115,5 +115,5 @@ const SOCIALS = [
 const RESOURCES = [
   { label: "RESOURCES" },
   { label: "Blog", href: "/blog" },
-  { label: "Brochure", href: "/" },
+  { label: "Brochure", href: "/brochure" },
 ];
