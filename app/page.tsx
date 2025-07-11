@@ -6,8 +6,14 @@ import { LogoCloud } from "@/components/organisms/logo-cloud";
 import { Page } from "@/components/organisms/page";
 import { ProductCatalog } from "@/components/organisms/product-catalog";
 import { Testimonials } from "@/components/organisms/testimonials";
+import { sanityFetch } from "@/lib/sanity/live";
+import { allProductsQuery } from "@/lib/sanity/queries";
 
-export default function Home() {
+
+export default async function Home() {
+  const [{ data: products }] = await Promise.all([
+    sanityFetch({ query: allProductsQuery }),
+  ]);
   return (
     <Page>
       {/* HERO */}
@@ -18,8 +24,7 @@ export default function Home() {
 
       {/* PRODUCT CATALOG */}
       <ProductCatalog />
-
-      <Carousel />
+      <Carousel products={products} />
 
       {/* COMPANY OVERVIEW */}
       <CompanyOverview />

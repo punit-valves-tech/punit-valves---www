@@ -27,12 +27,12 @@ export const allArticlesQuery = defineQuery(`
   `);
 
 export const allProductsQuery = defineQuery(`
-    *[_type == "product" && defined(slug.current)] | order(date desc, _updatedAt desc) {
+    *[_type == "product" && defined(slug.current)] | order(order asc) {
       _id,
       "slug": slug.current,
       class-> { "slug": slug.current, title },
       name,
-      image,
+      "image": image.asset->url,
       desc,
     }
   `);

@@ -15,9 +15,14 @@ export const ProductCatalog = () => (
           </>
         }
         primary={{
-          type:"primary",
-          children: <>VIEW ALL PRODUCTS <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" /></>,
-          href: "/products"
+          type: "primary",
+          children: (
+            <>
+              VIEW ALL PRODUCTS{" "}
+              <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" />
+            </>
+          ),
+          href: "/products",
         }}
       />
     </div>

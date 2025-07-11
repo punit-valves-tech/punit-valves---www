@@ -69,6 +69,13 @@ export const productType = defineType({
           }
         },
       ]
+    }),
+    defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+      initialValue: 0,
+      validation: (rule) => rule.min(-1),
     })
   ],
   preview: {
