@@ -67,8 +67,8 @@ export default async function ArticlePage(props: any) {
                   DOWNLOAD BROCHURE{" "}
                   <ArrowDownToLineIcon className="ml-2 h-4 -mr-2 item-end" />
                 </Button>
-                <Button type="secondary" href="/products">
-                  VIEW ALL PRODUCTS{" "}
+                <Button type="secondary" href="/contact">
+                  INQUIRE NOW{" "}
                   <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" />
                 </Button>
             </div>

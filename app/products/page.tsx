@@ -38,8 +38,10 @@ export default async function Products() {
         </div>
       </Section>
 
-      <Section>
-        <div className="grid grid-cols-4">
+      <Section sectionProps={{
+        className: "border-y border-y-[var(--grid-color)]"
+      }}>
+        <div className="grid grid-cols-4 -mt-[1px]">
           {/* <div className="col-span-1">
 
           </div> */}

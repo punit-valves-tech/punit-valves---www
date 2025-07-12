@@ -25,23 +25,33 @@ export default function Home() {
                 ADDRESS
               </Text> */}
 
-<Text as="p" scale="p1" font="expanded" className="uppercase mt-12">
-              Access BROCHURE
+              <Text
+                as="p"
+                scale="p1"
+                font="expanded"
+                className="uppercase mt-12"
+              >
+                Access BROCHURE
               </Text>
-<Text as="p" scale="p1" font="ibm-plex" className=" mt-1">
+              <Text as="p" scale="p1" font="ibm-plex" className=" mt-1">
                 {" "}
                 Get instant access to our brochure and take the first step
                 toward transforming your operations with Punit Valves. Simply
                 fill out the form to receive your copy.
               </Text>
 
-              <Text as="p" scale="p1" font="expanded" className="uppercase mt-12">
-              Innovative Product Range
+              <Text
+                as="p"
+                scale="p1"
+                font="expanded"
+                className="uppercase mt-12"
+              >
+                Innovative Product Range
               </Text>
               <Text as="p" scale="p1" font="ibm-plex" className=" mt-1">
-              Explore our diverse portfolio of
-              industrial valves, from gate and globe to ball and butterfly
-              valves, tailored to meet your specific needs.
+                Explore our diverse portfolio of industrial valves, from gate
+                and globe to ball and butterfly valves, tailored to meet your
+                specific needs.
               </Text>
               {/* <Text as="p" scale="p1" font="expanded" className="uppercase mt-12">
               Global Standards
@@ -55,7 +65,7 @@ export default function Home() {
             <div className="flex-grow min-h-10"></div>
           </div>
           <div className="aspect-square m-2 border border-[var(--grid-color)] bg-white overflow-hidde px-4 flex justify-center items-center flex-col">
-            <TallyForm />
+            <TallyForm formId="wdGJEA" />
           </div>
         </div>
       </Section>

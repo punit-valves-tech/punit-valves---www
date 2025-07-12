@@ -54,6 +54,7 @@ export const productQuery = defineQuery(`
       "slug": slug.current,
       _id,
       name,
+      class-> { "slug": slug.current, title },
       image,
       desc,
       specs

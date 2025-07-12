@@ -53,7 +53,7 @@ export default function Home() {
             <div className="flex-grow min-h-10"></div>
           </div>
           <div className="aspect-square m-2 border border-[var(--grid-color)] bg-white overflow-hidde px-4 flex justify-center items-center flex-col">
-            <TallyForm />
+            <TallyForm formId="waJpNv" />
           </div>
         </div>
       </Section>

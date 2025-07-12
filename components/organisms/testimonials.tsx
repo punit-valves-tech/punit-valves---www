@@ -51,9 +51,10 @@ export const Testimonials = () => {
                     as="p"
                     scale="p3"
                     font="inter"
-                    className="text-[var(--secondary-color)]"
+                    className="font-medium tracking-normal text-[var(--secondary-color)]"
                   >
-                    {o?.author?.name} <br />
+                    <span className="text-black">{o?.author?.name} </span>
+                    <br />
                     {o?.author?.designation}{" "}
                   </Text>
                 </div>
@@ -92,7 +93,7 @@ const TESTIMONIALS = [
       </>
     ),
     author: {
-      name: "Parimal Patel",
+      name: "Mr. Parimal Patel",
       designation: "M/s Maruti Trading Corporation",
     },
   },
@@ -106,6 +107,20 @@ const TESTIMONIALS = [
     author: {
       name: "Mr. Saurabh Chaudhary",
       designation: "",
+    },
+  },
+  {
+    quote: (
+      <>
+        I just wanted to take a moment to express my heartfelt appreciation for
+        the exceptional quality of your BUTTERFLY AND SWING TYPE NON-RETURN
+        VALVE. I&apos;ve been using your products for the past 15 years, and they&apos;ve
+        consistently delivered outstanding performance and durability.
+      </>
+    ),
+    author: {
+      name: "Mr. Rajesh T Dawda",
+      designation: "Shree Chamunda Engineers",
     },
   },
 ];
