@@ -1,8 +1,10 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import { Tawk } from "@/components/molecules/tawk";
 
 export const metadata: Metadata = {
   title: "Punit Valves",
@@ -51,6 +53,8 @@ export default function RootLayout({
       <body className={`antialiased`}>
         {/* CHILDREN */}
         {children}
+
+        {process.env.NEXT_PUBLIC_TAWK_ENABLED && <Tawk /> }
 
         {/* VERCEL */}
         <SpeedInsights />
