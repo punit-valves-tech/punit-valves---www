@@ -64,7 +64,7 @@ export const Footer = () => (
       </footer>
     </Section>
     <Section contained={false}>
-      <div className="bg-white border-t border-t-[var(--grid-color)] w-full">
+      <div className="bg-white border-y border-y-[var(--grid-color)] w-full">
         <div className="m-auto max-w-6xl flex flex-col md:flex-row justify-between py-8 px-4">
           <Text
             as="p"
