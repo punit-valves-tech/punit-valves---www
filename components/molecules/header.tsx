@@ -21,7 +21,7 @@ export const Header = () => (
           {NAV_ITEMS.map((o, i) => (
             <li key={i}>
               <Link className="px-8 py-4 cursor-pointer text-[var(--secondary-color)] hover:text-black" href={o.href}>
-                <Text font="inter" scale="p3" className="tracking-normal font-bold uppercase">
+                <Text font="inter" scale="p2" className="tracking-normal font-bold uppercase">
                   {o.label}
                 </Text>
               </Link>

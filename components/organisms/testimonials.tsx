@@ -18,7 +18,7 @@ export const Testimonials = () => {
   ]);
   return (
     <Section>
-      <div className="pt-40 w-full overflow-hidden embla" ref={emblaRef}>
+      <div className="pt-40 w-full overflow-hidden embla border-x border-x-[var(--grid-color)]" ref={emblaRef}>
         <div className="py-8 flex flex-row px-4 gap-4 embla_container">
           {TESTIMONIALS.map((o: any, i: any) => (
             <div
@@ -106,7 +106,7 @@ const TESTIMONIALS = [
     ),
     author: {
       name: "Mr. Saurabh Chaudhary",
-      designation: "",
+      designation: "S N Group",
     },
   },
   {

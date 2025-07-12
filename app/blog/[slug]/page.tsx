@@ -43,7 +43,7 @@ export default async function ArticlePage(props: any) {
             // desc="Stay ahead in the world of flow control. Explore industry trends, technical guides, and innovative solutions from our experts."
           />
           <Image
-            className="mt-10 w-full aspect-[16/9] object-cover"
+            className="mt-10 w-full aspect-[16/9] object-cover border-x border-x-[var(--grid-color)]"
             src={urlFor(article.mainImage).url()}
             alt="article hero"
             height="1080"
