@@ -17,3 +17,7 @@
 body {
   background-color: #FFFFFF;
 }
+
+.cross-section {
+  background-image: repeating-linear-gradient(125deg, transparent, transparent 6px, var(--grid-color) 6px, var(--grid-color) 7px);
+}

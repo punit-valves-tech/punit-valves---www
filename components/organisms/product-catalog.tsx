@@ -16,7 +16,6 @@ export const ProductCatalog = () => (
         }
         primary={{
           type: "primary",
-          className: "mb-8",
           children: (
             <>
               VIEW ALL PRODUCTS{" "}

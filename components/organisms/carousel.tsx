@@ -21,13 +21,13 @@ export const Carousel = ({ products }: any) => {
   ]);
   return (
     <Section contained={false}>
-      <div className="embla w-full" ref={emblaRef}>
-        <div className="flex flex-row px-4 gap-4 embla__container">
+      <div className="embla w-full overflow-hidden" ref={emblaRef}>
+        <div className="flex flex-row py-8 px-4 gap-4 embla__container">
           {products.map((o: any, i: any) => (
             <Link
               href={`/products/${o?.slug}`}
               key={i}
-              className="embla__slide border border-[var(--grid-color)] hover:border-black bg-white drop-shadow-2xl flex flex-col"
+              className="embla__slide border border-[var(--grid-color)] hover:border-black bg-white drop-shadow-xl flex flex-col"
             >
               <div className="aspect-square w-[20rem] m-4 border border-[var(--grid-color)] bg-[var(--grid-color)] overflow-hidden">
                 <Image
