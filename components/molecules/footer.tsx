@@ -11,9 +11,9 @@ export const Footer = () => (
           <div className="">
             <Link className="" href="/">
               <Image
-                width="300"
-                height="100"
-                className="h-16 w-auto"
+                width="401"
+                height="158"
+                className="h-16 w-auto py-1"
                 src="/logo-punit.png"
                 alt="Punit Valves Logo"
               />
@@ -52,7 +52,7 @@ export const Footer = () => (
                   <Link
                     className="not-first:opacity-50 not-first:font-medium not-first:hover:opacity-100 not-first:hover:underline hover:underline-offset-2"
                     key={i}
-                    href={o.href ?? "/"}
+                    href={o.href ?? ""}
                   >
                     {o.label}
                   </Link>
@@ -85,7 +85,7 @@ export const Footer = () => (
             Designed and Developed by{" "}
             <Link
               href="https://www.honeyhexa.com"
-              className="underline text-blue-500"
+              className="underline underline-offset-2 font-semibold text-blue-500"
             >
               Honey Hexa
             </Link>
@@ -106,10 +106,10 @@ const QUICK_LINKS = [
 
 const SOCIALS = [
   { label: "SOCIALS" },
-  { label: "Facebook", href: "/" },
-  { label: "Instagram", href: "/" },
-  { label: "Youtube", href: "/" },
-  { label: "X (Twitter)", href: "/" },
+  // { label: "Facebook", href: "/" },
+  // { label: "Instagram", href: "/" },
+  { label: "Youtube", href: "https://www.youtube.com/channel/UCCyo4GQzDu1dnjXD-GwdZCQ" },
+  // { label: "X (Twitter)", href: "/" },
 ];
 
 const RESOURCES = [

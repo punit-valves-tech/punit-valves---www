@@ -33,7 +33,7 @@ export default function Home() {
               >
                 Access BROCHURE
               </Text>
-              <Text as="p" scale="p1" font="ibm-plex" className=" mt-1">
+              <Text as="p" scale="p2" font="ibm-plex" className=" mt-1">
                 {" "}
                 Get instant access to our brochure and take the first step
                 toward transforming your operations with Punit Valves. Simply
@@ -48,7 +48,7 @@ export default function Home() {
               >
                 Innovative Product Range
               </Text>
-              <Text as="p" scale="p1" font="ibm-plex" className=" mt-1">
+              <Text as="p" scale="p2" font="ibm-plex" className=" mt-1">
                 Explore our diverse portfolio of industrial valves, from gate
                 and globe to ball and butterfly valves, tailored to meet your
                 specific needs.

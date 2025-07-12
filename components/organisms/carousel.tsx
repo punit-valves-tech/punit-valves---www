@@ -8,28 +8,30 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import Image from "next/image";
 import { ArrowRightIcon } from "lucide-react";
+import Link from "next/link";
 
 export const Carousel = ({ products }: any) => {
   const [emblaRef] = useEmblaCarousel({ loop: true, dragFree: true }, [
     AutoScroll({
       speed: 1,
-      stopOnMouseEnter: false,
+      stopOnMouseEnter: true,
       stopOnInteraction: false,
       startDelay: 0,
     }),
   ]);
   return (
     <Section contained={false}>
-      <div className="embla w-full overflow-hidden" ref={emblaRef}>
-        <div className="py-8 flex flex-row px-4 gap-4 embla__container">
+      <div className="embla w-full" ref={emblaRef}>
+        <div className="flex flex-row px-4 gap-4 embla__container">
           {products.map((o: any, i: any) => (
-            <div
+            <Link
+              href={`/products/${o?.slug}`}
               key={i}
-              className="embla__slide border bg-white drop-shadow-xl flex flex-col"
+              className="embla__slide border border-[var(--grid-color)] hover:border-black bg-white drop-shadow-2xl flex flex-col"
             >
-              <div className="aspect-square w-[20rem] md:w-[27rem] m-4 border border-[var(--grid-color)] bg-[var(--grid-color)] overflow-hidden">
+              <div className="aspect-square w-[20rem] m-4 border border-[var(--grid-color)] bg-[var(--grid-color)] overflow-hidden">
                 <Image
-                  alt="product valve"
+                  alt={o?.name}
                   src={o?.image}
                   width="640"
                   height="640"
@@ -37,7 +39,7 @@ export const Carousel = ({ products }: any) => {
                 />
               </div>
               <div className="pb-4 flex flex-col flex-grow w-full">
-                <div className="px-4 pb-2 flex flex-row">
+                <div className="px-4 pb-2 flex flex-row text-[var(--secondary-color)]">
                   <Text as="p" scale="p3" font="ibm-plex" className="uppercase">
                     {o?.class?.title}
                   </Text>
@@ -53,7 +55,7 @@ export const Carousel = ({ products }: any) => {
 
                 <Text
                   as="h3"
-                  scale="h8"
+                  scale="h9"
                   font="inter"
                   className="px-4 py-4 tracking-normal font-semibold"
                 >
@@ -68,26 +70,26 @@ export const Carousel = ({ products }: any) => {
                     {desc}
                   </Text> */}
 
-                <div className="px-4 flex flex-col md:flex-row gap-4">
+                <div className="px-4 flex flex-col gap-4">
                   <Button
                     href={`/products/${o?.slug}`}
-                    className="md:flex-grow"
+                    className="drop-shadow-none md:flex-grow"
                     type="primary"
                   >
                     TECHNICAL SPECIFICATIONS{" "}
                     <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" />
                   </Button>
-                  <Button
+                  {/* <Button
                     href="/contact"
                     className="md:flex-grow"
                     type="secondary"
                   >
                     GET QUOTE{" "}
                     <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" />
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

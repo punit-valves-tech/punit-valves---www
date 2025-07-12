@@ -9,9 +9,9 @@ export const Header = () => (
     <div className="w-full h-full m-auto max-w-6xl px-4 flex flex-row justify-between items-center">
       <Link className="h-16 w-44" href="/">
         <Image
-          width="300"
-          height="100"
-          className="h-full w-auto"
+          width="401"
+          height="158"
+          className="h-full w-auto py-1"
           src="/logo-punit.png"
           alt="Punit Valves Logo"
         />

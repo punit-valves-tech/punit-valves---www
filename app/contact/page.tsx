@@ -25,7 +25,7 @@ export default function Home() {
               <Text as="p" scale="p1" font="expanded" className=" mt-12">
                 ADDRESS
               </Text>
-              <Text as="p" scale="p1" font="ibm-plex" className=" mt-1">
+              <Text as="p" scale="p2" font="ibm-plex" className=" mt-1">
                 {" "}
                 K-1/3 G.I.D.C Antalia, Bilimora - Chikhli Road, <br />
                 Bilimora - 396325, Dist. Navsari, Gujarat, India.
@@ -34,7 +34,7 @@ export default function Home() {
               <Text as="p" scale="p1" font="expanded" className=" mt-12">
                 PHONE
               </Text>
-              <Text as="p" scale="p1" font="ibm-plex" className=" mt-1">
+              <Text as="p" scale="p2" font="ibm-plex" className=" mt-1">
                 Mihir Panchal —— +91 95588 17397
                 <br />
                 Bhavika Panchal —— +91 95104 12363
@@ -43,10 +43,10 @@ export default function Home() {
               <Text as="p" scale="p1" font="expanded" className=" mt-12">
                 EMAIL
               </Text>
-              <Text as="p" scale="p1" font="ibm-plex" className=" mt-1">
+              <Text as="p" scale="p2" font="ibm-plex" className=" mt-1">
                 miracle.etps@gmail.com
               </Text>
-              <Text as="p" scale="p1" font="ibm-plex" className=" mt-1">
+              <Text as="p" scale="p2" font="ibm-plex" className=" mt-1">
                 sales.miracleetps@gmail.com
               </Text>
             </div>

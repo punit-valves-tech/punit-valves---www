@@ -41,7 +41,7 @@ export default async function ArticlePage(props: any) {
           </div>
           <div className="px-4 flex flex-col h-full">
             <div className="flex-grow min-h-20"></div>
-              <Text as="p" scale="p3" font="ibm-plex" className="">
+              <Text as="p" scale="p3" font="ibm-plex" className="text-[var(--secondary-color)] uppercase">
                 {product?.class?.title}
               </Text>
               <Text
