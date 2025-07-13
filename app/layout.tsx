@@ -17,6 +17,11 @@ export default function RootLayout({
           name="ahrefs-site-verification"
           content="48e96a2033b25a1c02338f533a6a7ca36bd4330b6a45094c313cfaf829b17865"
         />
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="EQ2sAis7tNYk/C4k09rdUA"
+          async
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
