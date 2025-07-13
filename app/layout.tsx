@@ -13,6 +13,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta
+          name="ahrefs-site-verification"
+          content="48e96a2033b25a1c02338f533a6a7ca36bd4330b6a45094c313cfaf829b17865"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -47,7 +51,7 @@ export default function RootLayout({
         {/* CHILDREN */}
         {children}
 
-        {process.env.NEXT_PUBLIC_TAWK_ENABLED && <Tawk /> }
+        {process.env.NEXT_PUBLIC_TAWK_ENABLED && <Tawk />}
 
         {/* VERCEL */}
         <SpeedInsights />
