@@ -12,7 +12,15 @@ export const CTA = () => (
           width="1920"
           height="400"
           alt="cta"
-          className="-ml-[0.5px]"
+          className="hidden md:block -ml-[0.5px]"
+        />
+        <Image
+          unoptimized
+          src="/cta-v0-mobile.png"
+          width="1324"
+          height="964"
+          alt="cta"
+          className="block md:hidden"
         />
       </Link>
     </div>
