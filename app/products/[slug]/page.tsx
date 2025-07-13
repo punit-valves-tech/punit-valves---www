@@ -2,6 +2,7 @@ import { Button } from "@/components/atoms/button";
 import { Text } from "@/components/atoms/text";
 import { CTA } from "@/components/organisms/cta";
 import { Page } from "@/components/organisms/page";
+import { StructuredData } from "@/components/utils";
 import { BlockContent } from "@/components/utils/portable-text";
 import Section from "@/components/utils/section";
 import { ORIGIN } from "@/lib/content/constants";
@@ -62,6 +63,20 @@ export default async function ArticlePage(props: any) {
 
   return (
     <Page>
+      <StructuredData
+        jsonLd={{
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          name: product.name,
+          image: `https://www.punitvalves.com/_next/image?url=${encodeURI(urlFor(product.image).url())}&w=3840&q=75`,
+          description: product?.desc,
+          brand: {
+            "@type": "Brand",
+            name: "Punit Valves",
+          },
+          sku: `#REF${product._id.substr(1, 4)}`,
+        }}
+      />
       {/* HERO */}
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-2">
@@ -76,27 +91,32 @@ export default async function ArticlePage(props: any) {
           </div>
           <div className="px-4 flex flex-col h-full">
             <div className="flex-grow min-h-20"></div>
-              <Text as="p" scale="p3" font="ibm-plex" className="text-[var(--secondary-color)] uppercase">
-                {product?.class?.title}
-              </Text>
-              <Text
-                as="h1"
-                scale="h5"
-                font="expanded"
-                className="-ml-0.5 mt-2 uppercase"
-              >
-                {product?.name}
-              </Text>
-              <div className="flex-grow" />
-              <div className="my-6 flex flex-col md:flex-row gap-4">
-                <Button type="primary" href="/brochure">
-                  DOWNLOAD BROCHURE{" "}
-                  <ArrowDownToLineIcon className="ml-2 h-4 -mr-2 item-end" />
-                </Button>
-                <Button type="secondary" href="/contact">
-                  INQUIRE NOW{" "}
-                  <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" />
-                </Button>
+            <Text
+              as="p"
+              scale="p3"
+              font="ibm-plex"
+              className="text-[var(--secondary-color)] uppercase"
+            >
+              {product?.class?.title}
+            </Text>
+            <Text
+              as="h1"
+              scale="h5"
+              font="expanded"
+              className="-ml-0.5 mt-2 uppercase"
+            >
+              {product?.name}
+            </Text>
+            <div className="flex-grow" />
+            <div className="my-6 flex flex-col md:flex-row gap-4">
+              <Button type="primary" href="/brochure">
+                DOWNLOAD BROCHURE{" "}
+                <ArrowDownToLineIcon className="ml-2 h-4 -mr-2 item-end" />
+              </Button>
+              <Button type="secondary" href="/contact">
+                INQUIRE NOW{" "}
+                <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" />
+              </Button>
             </div>
             {/* <div className="flex-grow min-h-20"></div> */}
           </div>

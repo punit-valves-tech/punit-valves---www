@@ -10,7 +10,7 @@ const articleFields = /* groq */ `
   "date": coalesce(date, _updatedAt),
   publishedAt,
   lastUpdatedAt,
-  "author": author->{name, image},
+  "author": author->{_id, name, image},
 `;
 
 export const articleQuery = defineQuery(`

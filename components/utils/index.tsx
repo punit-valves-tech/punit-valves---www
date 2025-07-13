@@ -83,3 +83,13 @@ export const Guides: React.FC = () => (
 export const Dots: React.FC = () => (
   <div className=" h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:12px_12px]" />
 );
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const StructuredData = ({ jsonLd }: { jsonLd: Record<string, any> }) => (
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify(jsonLd),
+    }}
+  />
+);

@@ -4,6 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Tawk } from "@/components/molecules/tawk";
+import { StructuredData } from "@/components/utils";
 
 export default function RootLayout({
   children,
@@ -53,6 +54,53 @@ export default function RootLayout({
         <GoogleTagManager gtmId="GTM-MKLFT4C7" />
       </head>
       <body className={`antialiased`}>
+        {/* Schema JSON-LD */}
+        <StructuredData
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "Corporation",
+            name: "Punit Industrial Valves",
+            alternateName: "Punit Valves",
+            url: "https://www.punitvalves.com",
+            logo: "https://www.punitvalves.com/logo-punit.png",
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+919558817397",
+              contactType: "sales",
+              areaServed: "IN",
+              availableLanguage: ["en", "Gujarati", "Hindi"],
+            },
+            sameAs: [
+              "https://www.punitvalves.com",
+              "https://www.youtube.com/channel/UCCyo4GQzDu1dnjXD-GwdZCQ",
+            ],
+          }}
+        />
+
+        <StructuredData
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: "Punit Industrial Valves",
+            alternateName: "Punit Valves",
+            image: "https://www.punitvalves.com/logo-punit.png",
+            "@id": "",
+            url: "https://www.punitvalves.com",
+            telephone: "+919558817397",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "K-1/3 G.I.D.C Antalia, Bilimora - Chikhli Road",
+              addressLocality: "Bilimora",
+              postalCode: "396325",
+              addressCountry: "IN",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 20.7678775,
+              longitude: 73.0009089,
+            },
+          }}
+        />
         {/* CHILDREN */}
         {children}
 

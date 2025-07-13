@@ -1,9 +1,11 @@
 import { Text } from "@/components/atoms/text";
 import { CTA } from "@/components/organisms/cta";
 import { Page } from "@/components/organisms/page";
+import { StructuredData } from "@/components/utils";
 import { BlockContent } from "@/components/utils/portable-text";
 import Section from "@/components/utils/section";
 import { ORIGIN } from "@/lib/content/constants";
+import { ORG_SCHEMA } from "@/lib/content/schema";
 import { sanityFetch, urlFor } from "@/lib/sanity/live";
 import { articleQuery } from "@/lib/sanity/queries";
 import { ArrowLeftIcon } from "lucide-react";
@@ -60,6 +62,51 @@ export default async function ArticlePage(props: any) {
 
   return (
     <Page>
+      <StructuredData
+        jsonLd={{
+          "@context": "https://schema.org/",
+          "@type": "BlogPosting",
+          "@id": `${ORIGIN}/blog/${(await params)?.slug}`,
+          mainEntityOfPage: `${ORIGIN}/blog/${(await params)?.slug}`,
+          headline: article.title,
+          name: article.title,
+          // description: "",
+          datePublished: article.publishedAt,
+          dateModified: article.lastUpdatedAt,
+          author: {
+            "@type": "Person",
+            "@id": article.author._id,
+            name: article.author.name,
+            // url: "https://dataliberate.com/author/richard-wallis/",
+            // image: {
+            //   "@type": "ImageObject",
+            //   "@id":
+            //     "https://secure.gravatar.com/avatar/bbdd78abba6116d6f5bfa2c992de6592?s=96&d=mm&r=g",
+            //   url: "https://secure.gravatar.com/avatar/bbdd78abba6116d6f5bfa2c992de6592?s=96&d=mm&r=g",
+            //   height: "96",
+            //   width: "96",
+            // },
+          },
+          publisher: ORG_SCHEMA,
+          image: {
+            "@type": "ImageObject",
+            "@id": `https://www.punitvalves.com/_next/image?url=${encodeURI(urlFor(article.mainImage).url())}&w=3840&q=75`,
+            url: `https://www.punitvalves.com/_next/image?url=${encodeURI(urlFor(article.mainImage).url())}&w=3840&q=75`,
+          },
+          url: `${ORIGIN}/blog/${(await params)?.slug}`,
+          isPartOf: {
+            "@type": "Blog",
+            "@id": `${ORIGIN}/blog`,
+            mainEntityOfPage: `${ORIGIN}/blog`,
+            name: "Punit Valves Blog | Valve Industry Insights",
+            description:
+              "Stay informed with Punit Valves’ blog, featuring expert insights, valve technology updates, maintenance tips, and industry trends for global professionals.",
+            publisher: ORG_SCHEMA,
+          },
+          // wordCount: "488",
+          // keywords: ["Bibframe2Schema.org", "Libraries", "Library of Congress"],
+        }}
+      />
       <Section>
         <div className="flex flex-col py-20">
           <div className="px-4">
