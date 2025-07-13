@@ -20,7 +20,7 @@ export const revalidate = 0;
 export const metadata: Metadata = {
   title: "Punit Valves | Gate, Ball, Butterfly Valves and more",
   description:
-    "Browse Punit Valves’ range of industrial valves, including gate, ball, butterfly, check, needle, globe and more, engineered for durability and precision in diverse applications.",
+    "Browse Punit Valves’ range of products, including gate, ball, butterfly, check, needle, globe and more, engineered for durability and precision.",
   metadataBase: new URL(ORIGIN),
   alternates: {
     canonical: `/products`,
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Punit Valves | Gate, Ball, Butterfly Valves and more",
     description:
-      "Browse Punit Valves’ range of industrial valves, including gate, ball, butterfly, check, needle, globe and more, engineered for durability and precision in diverse applications.",
+      "Browse Punit Valves’ range of products, including gate, ball, butterfly, check, needle, globe and more, engineered for durability and precision.",
     url: `/products`,
-    siteName: "Punit Valves",
+    siteName: "Punit Industrial Valves",
     images: [
       {
         url: `${ORIGIN}/og-products.png`, // Must be an absolute URL
@@ -53,6 +53,7 @@ export default async function ProductsPage() {
         <div className="py-20">
           <Headline
             label="VALVES"
+            titleAs="h1"
             title={<>PRODUCT CATALOG</>}
             desc={
               <>

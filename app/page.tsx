@@ -14,15 +14,17 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Punit Valves | Industrial Valve Manufacturer",
   description:
-    "Discover Punit Valves, a trusted manufacturer of high-quality industrial valves for over 40 years. Explore reliable, precision-engineered solutions for global industries.",
+    "Discover Punit Valves, a trusted manufacturer of high-quality industrial valves. Explore reliable, precision-engineered solutions for global industries.",
   metadataBase: new URL(ORIGIN),
   alternates: {
     canonical: `/`,
   },
   openGraph: {
     title: "Punit Valves | Industrial Valve Manufacturer",
+    description:
+    "Discover Punit Valves, a trusted manufacturer of high-quality industrial valves. Explore reliable, precision-engineered solutions for global industries.",
     url: `/`,
-    siteName: "Punit Valves",
+    siteName: "Punit Industrial Valves",
     images: [
       {
         url: `${ORIGIN}/og-home.png`, // Must be an absolute URL

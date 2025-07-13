@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: article.title,
       url: `${ORIGIN}/blog/${(await params)?.slug}`,
-      siteName: "Punit Valves",
+      siteName: "Punit Industrial Valves",
       images: [
         {
           url: urlFor(article.mainImage).url(), // Must be an absolute URL

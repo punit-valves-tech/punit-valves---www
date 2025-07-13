@@ -2,7 +2,7 @@ import { Text } from "@/components/atoms/text";
 import { Button } from "@/components/atoms/button";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Headline = ({ label, title, desc, primary, secondary }: any) => (
+export const Headline = ({ label, title, desc, primary, secondary, titleAs = "h2" }: any) => (
   <div className="px-4 flex flex-col">
     {label && (
       <Text as="p" scale="p3" font="ibm-plex" className="">
@@ -11,7 +11,7 @@ export const Headline = ({ label, title, desc, primary, secondary }: any) => (
     )}
     {title && (
       <Text
-        as="h2"
+        as={titleAs}
         scale="h5"
         className="-ml-0.5 mt-1 uppercase font-(family-name:--font-expanded)"
       >
@@ -38,14 +38,14 @@ export const Headline = ({ label, title, desc, primary, secondary }: any) => (
 );
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const HeadlineV1 = ({ label, title, desc, primary, secondary }: any) => (
+export const HeadlineV1 = ({ label, title, desc, primary, secondary, titleAs = "h2" }: any) => (
   <div className="grid grid-cols-1 md:grid-cols-2">
     <div className="px-4 flex flex-col">
       <Text as="p" scale="p3" font="ibm-plex" className="">
         {label}
       </Text>
       <Text
-        as="h2"
+        as={titleAs}
         scale="h5"
         className="-ml-0.5 mt-1 uppercase font-(family-name:--font-expanded)"
       >

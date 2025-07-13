@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description:
       "Stay informed with Punit Valves’ blog, featuring expert insights, valve technology updates, maintenance tips, and industry trends for global professionals.",
     url: `/blog`,
-    siteName: "Punit Valves",
+    siteName: "Punit Industrial Valves",
     images: [
       {
         url: `${ORIGIN}/og-blog.png`, // Must be an absolute URL
@@ -50,6 +50,7 @@ export default async function BlogPage() {
         <div className="py-20">
           <Headline
             label="BLOG"
+            titleAs="h1"
             title={<>ARTICLES AND UPDATES</>}
             desc={
               <>

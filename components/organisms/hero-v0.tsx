@@ -21,9 +21,9 @@ export const HeroV0 = () => (
             className="-ml-0.5 mt-2 uppercase"
           >
             Engineering <br />
-            for <span className="text-[var(--primary-color)]">precision</span>,
+            for <span className="text-[var(--primary-color)]">precision</span>,&nbsp;
             <br />
-            <span className="text-[var(--primary-color)]">control</span> and
+            <span className="text-[var(--primary-color)]">control</span>&nbsp;and&nbsp;
             <br />
             <span className="text-[var(--primary-color)]">reliability</span>.
           </Text>

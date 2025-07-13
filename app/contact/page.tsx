@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "Reach out to Punit Valves for inquiries, technical support, or quotes. Our global team is ready to assist with your industrial valve needs.",
     url: `/contact`,
-    siteName: "Punit Valves",
+    siteName: "Punit Industrial Valves",
     images: [
       {
         url: `${ORIGIN}/og-contact.png`, // Must be an absolute URL

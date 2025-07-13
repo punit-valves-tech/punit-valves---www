@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description:
       "Learn about Punit Valves’ legacy, commitment to quality, and customized valve solutions for industries worldwide, backed by over 40 years of expertise.",
     url: `/about`,
-    siteName: "Punit Valves",
+    siteName: "Punit Industrial Valves",
     images: [
       {
         url: `${ORIGIN}/og-about.png`, // Must be an absolute URL
@@ -40,6 +40,7 @@ export default function AboutPage() {
       <Section>
         <div className="py-20">
           <HeadlineV1
+            titleAs="h1"
             title={
               <>
                 ABOUT US — <br />

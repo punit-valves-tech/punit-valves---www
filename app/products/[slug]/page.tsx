@@ -27,14 +27,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: product.name,
+    description: `Discover Punit Valves’ ${product.name}, engineered for durability and precision in diverse applications. Ideal for Industrial Applications, contact us for Global Solutions`,
     metadataBase: new URL(ORIGIN),
     alternates: {
       canonical: `/products/${(await params)?.slug}`,
     },
     openGraph: {
       title: product.name,
+      description: `Discover Punit Valves’ ${product.name}, engineered for durability and precision in diverse applications. Ideal for Industrial Applications, contact us for Global Solutions`,
       url: `${ORIGIN}/products/${(await params)?.slug}`,
-      siteName: "Punit Valves",
+      siteName: "Punit Industrial Valves",
       images: [
         {
           url: urlFor(product.image).url(), // Must be an absolute URL
@@ -85,15 +87,6 @@ export default async function ArticlePage(props: any) {
               >
                 {product?.name}
               </Text>
-              {/* <Text
-                as="p"
-                scale="p1"
-                font="inter"
-                className=" mt-4 font-medium tracking-[-0.01em] leading-[135%] text-[var(--secondary-color)]"
-              >
-                We has been delivering high-quality industrial valve solutions
-                with precision engineering and exceptional performance.
-              </Text> */}
               <div className="flex-grow" />
               <div className="my-6 flex flex-col md:flex-row gap-4">
                 <Button type="primary" href="/brochure">

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "Download Punit Valves’ brochures and catalogs to explore our innovative industrial valve solutions designed for performance and reliability.",
     url: `/brochure`,
-    siteName: "Punit Valves",
+    siteName: "Punit Industrial Valves",
     images: [
       {
         url: `${ORIGIN}/og-brochure.png`, // Must be an absolute URL
