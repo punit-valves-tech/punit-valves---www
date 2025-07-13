@@ -3,20 +3,47 @@ import { Headline } from "@/components/molecules/headline";
 import { CTA } from "@/components/organisms/cta";
 import { Page } from "@/components/organisms/page";
 import Section from "@/components/utils/section";
+import { ORIGIN } from "@/lib/content/constants";
 import { sanityFetch } from "@/lib/sanity/live";
 import { allArticlesQuery } from "@/lib/sanity/queries";
+import { Metadata } from "next";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
 export const revalidate = 0;
 
-export default async function Blog() {
-    const [{ data: articles }] = await Promise.all([
-      sanityFetch({ query: allArticlesQuery }),
-    ]);
+export const metadata: Metadata = {
+  title: "Punit Valves Blog | Valve Industry Insights",
+  description:
+    "Stay informed with Punit Valves’ blog, featuring expert insights, valve technology updates, maintenance tips, and industry trends for global professionals.",
+  metadataBase: new URL(ORIGIN),
+  alternates: {
+    canonical: `/blog`,
+  },
+  openGraph: {
+    title: "Punit Valves Blog | Valve Industry Insights",
+    description:
+      "Stay informed with Punit Valves’ blog, featuring expert insights, valve technology updates, maintenance tips, and industry trends for global professionals.",
+    url: `/blog`,
+    siteName: "Punit Valves",
+    images: [
+      {
+        url: `${ORIGIN}/og-blog.png`, // Must be an absolute URL
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+};
 
-    // const formatArticleDate = (date: string) => format(new Date(date), 'MMM dd, yyyy');
+export default async function BlogPage() {
+  const [{ data: articles }] = await Promise.all([
+    sanityFetch({ query: allArticlesQuery }),
+  ]);
+
+  // const formatArticleDate = (date: string) => format(new Date(date), 'MMM dd, yyyy');
   return (
     <Page>
       <Section>
@@ -45,26 +72,44 @@ export default async function Blog() {
               className="w-full hover:bg-white hover:border! hover:border-black! hover:drop-shadow-2xl! border border-transparent border-t border-t-[var(--grid-color)] nth-last-2:border-b nth-last-2:border-b-[var(--grid-color)] last:border-b last:border-b-[var(--grid-color)]"
             >
               <div className="h-72 flex flex-col bg-white mx-1 px-3 py-4">
-              <div className="w-full flex flex-row items-center">
-                <Text as="p" scale="p3" font="inter" className="text-[var(--secondary-color)] font-medium tracking-normal">
-                  {o.author.name}
-                </Text>
+                <div className="w-full flex flex-row items-center">
+                  <Text
+                    as="p"
+                    scale="p3"
+                    font="inter"
+                    className="text-[var(--secondary-color)] font-medium tracking-normal"
+                  >
+                    {o.author.name}
+                  </Text>
+                  <div className="flex-grow" />
+                  <Text
+                    as="p"
+                    scale="p3"
+                    font="inter"
+                    className="text-[var(--secondary-color)] font-medium tracking-normal"
+                  >
+                    June 2, 2025 /{" "}
+                    <span className="text-red-700">Engineering</span>
+                  </Text>
+                </div>
                 <div className="flex-grow" />
-                <Text as="p" scale="p3" font="inter" className="text-[var(--secondary-color)] font-medium tracking-normal">
-                  June 2, 2025 /{" "}
-                  <span className="text-red-700">Engineering</span>
+                <Text
+                  as="h2"
+                  scale="h7"
+                  font="inter"
+                  className="pr-8 font-semibold tracking-normal"
+                >
+                  {o.title}
                 </Text>
-                
-
-              </div>
-              <div className="flex-grow" />
-              <Text as="h2" scale="h7" font="inter" className="pr-8 font-semibold tracking-normal">
-                {o.title}
-              </Text>
-              <Text as="p" scale="p1" font="inter" className="pr-8 mt-2 text-[var(--secondary-color)] font-medium tracking-normal">
-                Discover how leak-proof designs ensure zero downtime and maximum
-                safety in high-stakes industries like oil and gas.
-              </Text>
+                <Text
+                  as="p"
+                  scale="p1"
+                  font="inter"
+                  className="pr-8 mt-2 text-[var(--secondary-color)] font-medium tracking-normal"
+                >
+                  Discover how leak-proof designs ensure zero downtime and
+                  maximum safety in high-stakes industries like oil and gas.
+                </Text>
               </div>
             </Link>
           ))}

@@ -10,12 +10,39 @@ import Link from "next/link";
 import { allProductsQuery } from "@/lib/sanity/queries";
 import { sanityFetch, urlFor } from "@/lib/sanity/live";
 import { ArrowRightIcon } from "lucide-react";
+import { Metadata } from "next";
+import { ORIGIN } from "@/lib/content/constants";
 
 export const dynamic = "force-dynamic";
 
 export const revalidate = 0;
 
-export default async function Products() {
+export const metadata: Metadata = {
+  title: "Punit Valves | Gate, Ball, Butterfly Valves and more",
+  description:
+    "Browse Punit Valves’ range of industrial valves, including gate, ball, butterfly, check, needle, globe and more, engineered for durability and precision in diverse applications.",
+  metadataBase: new URL(ORIGIN),
+  alternates: {
+    canonical: `/products`,
+  },
+  openGraph: {
+    title: "Punit Valves | Gate, Ball, Butterfly Valves and more",
+    description:
+      "Browse Punit Valves’ range of industrial valves, including gate, ball, butterfly, check, needle, globe and more, engineered for durability and precision in diverse applications.",
+    url: `/products`,
+    siteName: "Punit Valves",
+    images: [
+      {
+        url: `${ORIGIN}/og-products.png`, // Must be an absolute URL
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+};
+
+export default async function ProductsPage() {
   const [{ data: products }] = await Promise.all([
     sanityFetch({ query: allProductsQuery }),
   ]);
@@ -38,9 +65,11 @@ export default async function Products() {
         </div>
       </Section>
 
-      <Section sectionProps={{
-        className: "border-y border-y-[var(--grid-color)]"
-      }}>
+      <Section
+        sectionProps={{
+          className: "border-y border-y-[var(--grid-color)]",
+        }}
+      >
         <div className="grid grid-cols-4 -mt-[1px]">
           {/* <div className="col-span-1">
 

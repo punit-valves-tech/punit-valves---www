@@ -4,15 +4,48 @@ import { CTA } from "@/components/organisms/cta";
 import { Page } from "@/components/organisms/page";
 import { BlockContent } from "@/components/utils/portable-text";
 import Section from "@/components/utils/section";
+import { ORIGIN } from "@/lib/content/constants";
 import { sanityFetch, urlFor } from "@/lib/sanity/live";
 import { productQuery } from "@/lib/sanity/queries";
 import { ArrowDownToLineIcon, ArrowRightIcon } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
 export const revalidate = 0;
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const [{ data: product }] = await Promise.all([
+    sanityFetch({ query: productQuery, params }),
+  ]);
+
+  return {
+    title: product.name,
+    metadataBase: new URL(ORIGIN),
+    alternates: {
+      canonical: `/products/${(await params)?.slug}`,
+    },
+    openGraph: {
+      title: product.name,
+      url: `${ORIGIN}/products/${(await params)?.slug}`,
+      siteName: "Punit Valves",
+      images: [
+        {
+          url: urlFor(product.image).url(), // Must be an absolute URL
+          width: 1200,
+          height: 630,
+        },
+      ],
+      type: "website",
+    },
+  };
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function ArticlePage(props: any) {

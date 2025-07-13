@@ -3,8 +3,35 @@ import { TallyForm } from "@/components/molecules/tally-form";
 import { LogoCloud } from "@/components/organisms/logo-cloud";
 import { Page } from "@/components/organisms/page";
 import Section from "@/components/utils/section";
+import { ORIGIN } from "@/lib/content/constants";
+import { Metadata } from "next";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Punit Valves Brochures | Product Catalogs",
+  description:
+    "Download Punit Valves’ brochures and catalogs to explore our innovative industrial valve solutions designed for performance and reliability.",
+  metadataBase: new URL(ORIGIN),
+  alternates: {
+    canonical: `/brochure`,
+  },
+  openGraph: {
+    title: "Punit Valves Brochures | Product Catalogs",
+    description:
+      "Download Punit Valves’ brochures and catalogs to explore our innovative industrial valve solutions designed for performance and reliability.",
+    url: `/brochure`,
+    siteName: "Punit Valves",
+    images: [
+      {
+        url: `${ORIGIN}/og-brochure.png`, // Must be an absolute URL
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+};
+
+export default function BrochurePage() {
   return (
     <Page>
       <Section>

@@ -6,9 +6,33 @@ import { LogoCloud } from "@/components/organisms/logo-cloud";
 import { Page } from "@/components/organisms/page";
 import { ProductCatalog } from "@/components/organisms/product-catalog";
 import { Testimonials } from "@/components/organisms/testimonials";
+import { ORIGIN } from "@/lib/content/constants";
 import { sanityFetch } from "@/lib/sanity/live";
 import { allProductsQuery } from "@/lib/sanity/queries";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Punit Valves | Industrial Valve Manufacturer",
+  description:
+    "Discover Punit Valves, a trusted manufacturer of high-quality industrial valves for over 40 years. Explore reliable, precision-engineered solutions for global industries.",
+  metadataBase: new URL(ORIGIN),
+  alternates: {
+    canonical: `/`,
+  },
+  openGraph: {
+    title: "Punit Valves | Industrial Valve Manufacturer",
+    url: `/`,
+    siteName: "Punit Valves",
+    images: [
+      {
+        url: `${ORIGIN}/og-home.png`, // Must be an absolute URL
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+};
 
 export default async function Home() {
   const [{ data: products }] = await Promise.all([

@@ -1,6 +1,5 @@
+import { ORIGIN } from '@/lib/content/constants'
 import type { MetadataRoute } from 'next'
-
-const ORIGIN = "http://www.punitvalves.com";
  
 export default function robots(): MetadataRoute.Robots {
   return {

@@ -1,12 +1,13 @@
 import { Text } from "@/components/atoms/text";
-import { Headline } from "@/components/molecules/headline";
 import { CTA } from "@/components/organisms/cta";
 import { Page } from "@/components/organisms/page";
 import { BlockContent } from "@/components/utils/portable-text";
 import Section from "@/components/utils/section";
+import { ORIGIN } from "@/lib/content/constants";
 import { sanityFetch, urlFor } from "@/lib/sanity/live";
 import { articleQuery } from "@/lib/sanity/queries";
 import { ArrowLeftIcon } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -14,6 +15,37 @@ import { notFound } from "next/navigation";
 export const dynamic = "force-dynamic";
 
 export const revalidate = 0;
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const [{ data: article }] = await Promise.all([
+    sanityFetch({ query: articleQuery, params }),
+  ]);
+
+  return {
+    title: article.title,
+    metadataBase: new URL(ORIGIN),
+    alternates: {
+      canonical: `/blog/${(await params)?.slug}`,
+    },
+    openGraph: {
+      title: article.title,
+      url: `${ORIGIN}/blog/${(await params)?.slug}`,
+      siteName: "Punit Valves",
+      images: [
+        {
+          url: urlFor(article.mainImage).url(), // Must be an absolute URL
+          width: 1200,
+          height: 630,
+        },
+      ],
+      type: "article",
+    },
+  };
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function ArticlePage(props: any) {
@@ -38,10 +70,13 @@ export default async function ArticlePage(props: any) {
               </Text>
             </Link>
           </div>
-          <Headline
-            title={article.title}
-            // desc="Stay ahead in the world of flow control. Explore industry trends, technical guides, and innovative solutions from our experts."
-          />
+          <Text
+            as="h1"
+            scale="h5"
+            className="px-4 -ml-0.5 mt-1 uppercase font-(family-name:--font-expanded)"
+          >
+            {article.title}
+          </Text>
           <Image
             className="mt-10 w-full aspect-[16/9] object-cover border-x border-x-[var(--grid-color)]"
             src={urlFor(article.mainImage).url()}

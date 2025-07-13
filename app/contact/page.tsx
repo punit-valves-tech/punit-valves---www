@@ -3,8 +3,35 @@ import { TallyForm } from "@/components/molecules/tally-form";
 import { LogoCloud } from "@/components/organisms/logo-cloud";
 import { Page } from "@/components/organisms/page";
 import Section from "@/components/utils/section";
+import { ORIGIN } from "@/lib/content/constants";
+import { Metadata } from "next";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Contact Punit Valves | Valve Solutions Experts",
+  description:
+    "Reach out to Punit Valves for inquiries, technical support, or quotes. Our global team is ready to assist with your industrial valve needs.",
+  metadataBase: new URL(ORIGIN),
+  alternates: {
+    canonical: `/contact`,
+  },
+  openGraph: {
+    title: "Contact Punit Valves | Valve Solutions Experts",
+    description:
+      "Reach out to Punit Valves for inquiries, technical support, or quotes. Our global team is ready to assist with your industrial valve needs.",
+    url: `/contact`,
+    siteName: "Punit Valves",
+    images: [
+      {
+        url: `${ORIGIN}/og-contact.png`, // Must be an absolute URL
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+};
+
+export default function ContactPage() {
   return (
     <Page>
       <Section>
@@ -57,7 +84,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
-        <LogoCloud/>
+      <LogoCloud />
     </Page>
   );
 }

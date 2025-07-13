@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { ORIGIN } from "@/lib/content/constants";
 import { sanityFetch } from "@/lib/sanity/live";
 import { allArticleSlugsQuery, allProductSlugsQuery } from "@/lib/sanity/queries";
 import type { MetadataRoute } from "next";
-
-const ORIGIN = "http://www.punitvalves.com";
 
 const route = (
   url = "/",

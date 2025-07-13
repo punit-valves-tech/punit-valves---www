@@ -4,8 +4,35 @@ import { CTA } from "@/components/organisms/cta";
 import { Page } from "@/components/organisms/page";
 import { Testimonials } from "@/components/organisms/testimonials";
 import Section from "@/components/utils/section";
+import { ORIGIN } from "@/lib/content/constants";
+import { Metadata } from "next";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "About Punit Valves | 40+ Years of Excellence",
+  description:
+    "Learn about Punit Valves’ legacy, commitment to quality, and customized valve solutions for industries worldwide, backed by over 40 years of expertise.",
+  metadataBase: new URL(ORIGIN),
+  alternates: {
+    canonical: `/about`,
+  },
+  openGraph: {
+    title: "About Punit Valves | 40+ Years of Excellence",
+    description:
+      "Learn about Punit Valves’ legacy, commitment to quality, and customized valve solutions for industries worldwide, backed by over 40 years of expertise.",
+    url: `/about`,
+    siteName: "Punit Valves",
+    images: [
+      {
+        url: `${ORIGIN}/og-about.png`, // Must be an absolute URL
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+};
+
+export default function AboutPage() {
   return (
     <Page>
       {/* HERO */}
