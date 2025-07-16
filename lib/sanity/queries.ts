@@ -10,7 +10,10 @@ const articleFields = /* groq */ `
   "date": coalesce(date, _updatedAt),
   publishedAt,
   lastUpdatedAt,
+  category->,
+  tags->,
   "author": author->{_id, name, image},
+  "plaintextBody": pt::text(body)
 `;
 
 export const articleQuery = defineQuery(`
@@ -21,7 +24,7 @@ export const articleQuery = defineQuery(`
   `);
 
 export const allArticlesQuery = defineQuery(`
-    *[_type == "article" && defined(slug.current)] | order(date desc, _updatedAt desc) {
+    *[_type == "article" && defined(slug.current)] | order(lastUpdatedAt desc) {
       ${articleFields}
     }
   `);
@@ -60,3 +63,7 @@ export const productQuery = defineQuery(`
       specs
     }
   `);
+
+export const notificationQuery = defineQuery(
+  `*[_type == "notification" && expiryDate > now()][0]`
+);

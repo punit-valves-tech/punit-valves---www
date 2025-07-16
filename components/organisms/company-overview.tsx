@@ -11,7 +11,10 @@ export const CompanyOverview = () => (
       <Headline
         label={<>ABOUT US</>}
         title={<>Company Overview</>}
-        desc={<>We are a leading industrial valve manufacturer with a global perspective and local expertise. We provide deeply localized service and highly customized production to meet the unique demands of various industries.</>}
+        desc={<>MIRACLE ENTERPRISE is located at Bilimora, Dist. Navsari,
+          Gujarat State, India. Miracle Enterprise is a sister concern of B. H. Smith
+          And Sons which was primarily engage in manufacturing of Industrial
+          valves since 1976.</>}
         primary={{
           type:"primary",
           children: <>LEARN MORE <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" /></>,
@@ -47,8 +50,8 @@ export const CompanyOverview = () => (
 )
 
 const STATS = [
-  { stat: "45+", desc: "Years of experience" },
+  { stat: "25+", desc: "Years of experience" },
   { stat: "100+", desc: "Clients satisfied" },
   { stat: "24K+", desc: "Units / Year" },
-  { stat: "10+", desc: "Export States" },
+  { stat: "5+", desc: "Export States" },
 ]

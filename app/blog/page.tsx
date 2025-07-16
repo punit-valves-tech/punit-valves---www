@@ -6,6 +6,7 @@ import Section from "@/components/utils/section";
 import { ORIGIN } from "@/lib/content/constants";
 import { sanityFetch } from "@/lib/sanity/live";
 import { allArticlesQuery } from "@/lib/sanity/queries";
+import { formatDate } from "@/lib/utils";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -89,8 +90,8 @@ export default async function BlogPage() {
                     font="inter"
                     className="text-[var(--secondary-color)] font-medium tracking-normal"
                   >
-                    June 2, 2025 /{" "}
-                    <span className="text-red-700">Engineering</span>
+                    {formatDate(o.lastUpdatedAt)} /{" "}
+                    <span className="text-red-700">{o?.category?.title}</span>
                   </Text>
                 </div>
                 <div className="flex-grow" />
@@ -106,10 +107,9 @@ export default async function BlogPage() {
                   as="p"
                   scale="p1"
                   font="inter"
-                  className="pr-8 mt-2 text-[var(--secondary-color)] font-medium tracking-normal"
+                  className="pr-8 mt-2 text-[var(--secondary-color)] font-medium tracking-normal truncate"
                 >
-                  Discover how leak-proof designs ensure zero downtime and
-                  maximum safety in high-stakes industries like oil and gas.
+                  {o.plaintextBody}
                 </Text>
               </div>
             </Link>

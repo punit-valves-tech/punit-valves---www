@@ -3,9 +3,10 @@
 
 import Section from "@/components/utils/section";
 import { Text } from "../atoms/text";
-import { QuoteIcon, UserIcon } from "lucide-react";
+import { QuoteIcon } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
+import Image from "next/image";
 
 export const Testimonials = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true, dragFree: true }, [
@@ -45,13 +46,19 @@ export const Testimonials = () => {
               </Text>
               <div className="flex-grow" />
               <div className="flex flex-row items-center gap-4">
-                <UserIcon />
+                <Image
+                  src={o?.author?.image}
+                  height="640"
+                  width="960"
+                  className="h-16 w-16 rounded-sm object-cover"
+                  alt="author"
+                />
                 <div>
                   <Text
                     as="p"
-                    scale="p3"
+                    scale="p2"
                     font="inter"
-                    className="font-medium tracking-normal text-[var(--secondary-color)]"
+                    className="font-semibold tracking-normal text-[var(--secondary-color)]"
                   >
                     <span className="text-black">{o?.author?.name} </span>
                     <br />
@@ -81,6 +88,7 @@ const TESTIMONIALS = [
     author: {
       name: "Mr. Vishal Shah",
       designation: "Avashi Engineering And Chemical Corporation",
+      image: "/testi-vishal-shah.jpeg"
     },
   },
   {
@@ -94,7 +102,8 @@ const TESTIMONIALS = [
     ),
     author: {
       name: "Mr. Parimal Patel",
-      designation: "M/s Maruti Trading Corporation",
+      designation: "Maruti Trading Corporation",
+      image: "/testi-parimal-patel.jpeg"
     },
   },
   {
@@ -107,6 +116,7 @@ const TESTIMONIALS = [
     author: {
       name: "Mr. Saurabh Chaudhary",
       designation: "S N Group",
+      image: "/testi-saurabh-chaudhary.jpeg"
     },
   },
   {
@@ -121,6 +131,7 @@ const TESTIMONIALS = [
     author: {
       name: "Mr. Rajesh T Dawda",
       designation: "Shree Chamunda Engineers",
+      image: "/testi-rajesh-dawda.jpeg"
     },
   },
 ];

@@ -42,10 +42,10 @@ export const articleType = defineType({
       ],
     }),
     defineField({
-      name: "categories",
-      type: "array",
+      name: "category",
+      type: "reference",
       validation: (rule) => rule.required(),
-      of: [defineArrayMember({ type: "reference", to: { type: "category" } })],
+      to: { type: "category" }
     }),
     defineField({
       name: "tags",

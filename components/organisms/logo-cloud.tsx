@@ -6,7 +6,7 @@ export const LogoCloud = () => (
   <Section
     guides={false}
     sectionProps={{
-      className: "bg-[#fafafb] border-y border-y-[var(--grid-color)]",
+      className: "bg-[#fafafa] border-y border-y-[var(--grid-color)]",
     }}
   >
     <div className="flex flex-col py-10">
@@ -17,18 +17,17 @@ export const LogoCloud = () => (
         {[
           "/logo-utc.png",
           "/logo-ntf.png",
+          "/logo-windson.png",
           "/logo-jkl.png",
-          "/logo-utc.png",
         ].map((o, i) => (
-          <div key={i} className="h-16 mx-10 my-4">
             <Image
-              className="h-full object-cover"
+              key={i}
+              className="h-20 w-auto m-auto object-fit"
               src={o}
               width="600"
               height="225"
               alt="client logo"
             />
-          </div>
         ))}
       </div>
     </div>

@@ -3,10 +3,12 @@ import { Button } from "../atoms/button";
 import Image from "next/image";
 import { ArrowRightIcon } from "lucide-react";
 import { Text } from "../atoms/text";
+import { Suspense } from "react";
+import { Notification } from "./notification";
 
 export const Header = () => (
-  <header className="z-[10] drop-shadow-xl md:drop-shadow-none top-0 sticky bg-white/80 backdrop-blur-xl h-20 w-full border-b border-b-[var(--grid-color)]">
-    <div className="w-full h-full m-auto max-w-6xl px-4 flex flex-row justify-between items-center">
+  <header className="z-[10] drop-shadow-xl md:drop-shadow-none top-0 sticky bg-white/80 backdrop-blur-xl flex flex-col w-full border-b border-b-[var(--grid-color)]">
+    <div className="w-full h-20 m-auto max-w-6xl px-4 flex flex-row justify-between items-center">
       <Link className="h-16 w-44" href="/">
         <Image
           width="401"
@@ -35,6 +37,11 @@ export const Header = () => (
           <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" />
         </Button>
       </div>
+    </div>
+    <div className="w-full">
+      <Suspense fallback={<></>}>
+        <Notification />
+      </Suspense>
     </div>
   </header>
 );
