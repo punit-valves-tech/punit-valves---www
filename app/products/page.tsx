@@ -57,9 +57,9 @@ export default async function ProductsPage() {
             title={<>PRODUCT CATALOG</>}
             desc={
               <>
-                Stay ahead in the world of flow control. Explore industry
-                trends, technical guides, and innovative solutions from our
-                experts.
+                Showcasing our precision-engineered industrial valves, each
+                product is crafted to meet rigorous industry standards, ensuring
+                reliability and efficiency for your operations.
               </>
             }
           />

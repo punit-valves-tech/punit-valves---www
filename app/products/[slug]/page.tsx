@@ -2,6 +2,7 @@ import { Button } from "@/components/atoms/button";
 import { Text } from "@/components/atoms/text";
 import { CTA } from "@/components/organisms/cta";
 import { Page } from "@/components/organisms/page";
+import EmblaCarousel from "@/components/organisms/thumbs-carousel";
 import { StructuredData } from "@/components/utils";
 import { BlockContent } from "@/components/utils/portable-text";
 import Section from "@/components/utils/section";
@@ -80,14 +81,18 @@ export default async function ArticlePage(props: any) {
       {/* HERO */}
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="aspect-square m-2 border border-[var(--grid-color)] bg-white">
-            <Image
-              alt="product valve"
-              src={urlFor(product?.image).url()}
-              width="640"
-              height="640"
-              className="object-cover aspect-square w-full"
-            />
+          <div className="m-2 bg-white">
+            {product?.images?.length > 0 ? (
+              <EmblaCarousel slides={product?.images} />
+            ) : (
+              <Image
+                alt="product valve"
+                src={urlFor(product?.image).url()}
+                width="640"
+                height="640"
+                className="border border-[var(--grid-color)] object-cover aspect-square w-full"
+              />
+            )}
           </div>
           <div className="px-4 flex flex-col h-full">
             <div className="flex-grow min-h-20"></div>
@@ -168,7 +173,7 @@ export default async function ArticlePage(props: any) {
                         as="p"
                         scale="p3"
                         font="ibm-plex"
-                        className="uppercase"
+                        className="uppercase text-[var(--secondary-color)]"
                       >
                         {o.label}
                       </Text>

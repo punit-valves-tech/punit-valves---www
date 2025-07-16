@@ -10,8 +10,11 @@ export const ProductCatalog = () => (
         title={<>Product Catalog</>}
         desc={
           <>
-            Explore detailed specifications, view engineering drawings, product
-            descriptions and find the ideal valve for your needs.
+            {/* Explore detailed specifications, view engineering drawings, product
+            descriptions and find the ideal valve for your needs. */}
+            Showcasing our precision-engineered industrial valves, each product
+            is crafted to meet rigorous industry standards, ensuring reliability
+            and efficiency for your operations.
           </>
         }
         primary={{

@@ -4,7 +4,14 @@ import { LogoCloud } from "@/components/organisms/logo-cloud";
 import { Page } from "@/components/organisms/page";
 import Section from "@/components/utils/section";
 import { ORIGIN } from "@/lib/content/constants";
+import {
+  ArrowUpRightIcon,
+  MailIcon,
+  MapPinIcon,
+  PhoneIcon,
+} from "lucide-react";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Contact Punit Valves | Valve Solutions Experts",
@@ -49,32 +56,77 @@ export default function ContactPage() {
                 <span className="text-[var(--primary-color)]">TOUCH</span>
               </Text>
 
-              <Text as="p" scale="p1" font="expanded" className=" mt-12">
-                ADDRESS
-              </Text>
-              <Text as="p" scale="p2" font="ibm-plex" className=" mt-1">
+              <div className="flex flex-row items-center gap-2 mt-12">
+                <MapPinIcon className="h-6 w-6" />
+                <Text as="p" scale="p1" font="expanded" className="">
+                  ADDRESS
+                </Text>
+              </div>
+              <Text as="p" scale="p2" font="ibm-plex" className=" mt-1 ml-8">
                 {" "}
                 K-1/3 G.I.D.C Antalia, Bilimora - Chikhli Road, <br />
-                Bilimora - 396325, Dist. Navsari, Gujarat, India.
+                Bilimora - 396325, Dist. Navsari, Gujarat, India. <br />
+                <Link
+                  href="https://maps.app.goo.gl/eX6NABa3afremgeu5" target="_blank"
+                  className="text-blue-600 underline underline-offset-2 flex flex-row items-center gap-1 text-blue-600"
+                >
+                  Google Maps <ArrowUpRightIcon className="h-4 w-4" />
+                </Link>
               </Text>
 
-              <Text as="p" scale="p1" font="expanded" className=" mt-12">
-                PHONE
-              </Text>
-              <Text as="p" scale="p2" font="ibm-plex" className=" mt-1">
-                Mihir Panchal —— +91 95588 17397
+              <div className="flex flex-row items-center gap-3 mt-12">
+                <PhoneIcon className="h-5 w-5" />
+                <Text as="p" scale="p1" font="expanded" className="">
+                  PHONE
+                </Text>
+              </div>
+
+              <Text as="p" scale="p2" font="ibm-plex" className=" mt-1 ml-8">
+                Mihir Panchal ——&nbsp;
+                <Link
+                  href="tel:+919558817397"
+                  className="text-blue-600 underline underline-offset-2"
+                >
+                  +91 95588 17397
+                </Link>
                 <br />
-                Bhavika Panchal —— +91 95104 12363
+                Bhavika Panchal ——&nbsp;
+                <Link
+                  href="tel:+919510412363"
+                  className="text-blue-600 underline underline-offset-2"
+                >
+                  +91 95104 12363
+                </Link>
+                
               </Text>
 
-              <Text as="p" scale="p1" font="expanded" className=" mt-12">
-                EMAIL
+              <div className="flex flex-row items-center gap-3 mt-12">
+                <MailIcon className="h-5 w-5" />
+                <Text as="p" scale="p1" font="expanded" className="">
+                  EMAIL
+                </Text>
+              </div>
+
+              <Text
+                as="span"
+                scale="p2"
+                font="ibm-plex"
+                className="text-blue-600 underline underline-offset-2 mt-1 ml-8"
+              >
+                <Link href="mailto:miracle.etps@gmail.com">
+                  miracle.etps@gmail.com
+                </Link>
               </Text>
-              <Text as="p" scale="p2" font="ibm-plex" className=" mt-1">
-                miracle.etps@gmail.com
-              </Text>
-              <Text as="p" scale="p2" font="ibm-plex" className=" mt-1">
-                sales.miracleetps@gmail.com
+              <br />
+              <Text
+                as="span"
+                scale="p2"
+                font="ibm-plex"
+                className="text-blue-600 underline underline-offset-2 mt-1 ml-8"
+              >
+                <Link href="mailto:sales.miracleetps@gmail.com">
+                  sales.miracleetps@gmail.com
+                </Link>
               </Text>
             </div>
             <div className="flex-grow min-h-10"></div>

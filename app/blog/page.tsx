@@ -44,7 +44,6 @@ export default async function BlogPage() {
     sanityFetch({ query: allArticlesQuery }),
   ]);
 
-  // const formatArticleDate = (date: string) => format(new Date(date), 'MMM dd, yyyy');
   return (
     <Page>
       <Section>
@@ -95,6 +94,19 @@ export default async function BlogPage() {
                   </Text>
                 </div>
                 <div className="flex-grow" />
+                <div className="flex flex-row gap-4">
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                  {o?.tags?.map((t: any, i: any) => (
+                    <Text
+                      key={i}
+                      scale="p3"
+                      font="ibm-plex"
+                      className="py-2 tracking-normal uppercase text-[var(--primary-color)]"
+                    >
+                      #{t?.title}
+                    </Text>
+                  ))}
+                </div>
                 <Text
                   as="h2"
                   scale="h7"

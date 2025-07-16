@@ -29,6 +29,26 @@ export const productType = defineType({
       },
     }),
     defineField({
+      name: "images",
+      type: "array",
+      validation: (rule) => rule.required(),
+      of: [defineArrayMember({
+        name: "image",
+        type: "image",
+        validation: (rule) => rule.required(),
+        options: {
+          hotspot: true,
+        },
+        fields: [
+          defineField({
+            name: "alt",
+            type: "string",
+            title: "Alternative text",
+          }),
+        ],
+      })],
+    }),
+    defineField({
       name: "class",
       type: "reference",
       validation: (rule) => rule.required(),

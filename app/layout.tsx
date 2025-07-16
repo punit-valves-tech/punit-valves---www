@@ -51,7 +51,9 @@ export default function RootLayout({
           rel="stylesheet"
         ></link>
 
-        <GoogleTagManager gtmId="GTM-MKLFT4C7" />
+        {process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? (
+          <GoogleTagManager gtmId="GTM-MKLFT4C7" />
+        ) : null}
       </head>
       <body className={`antialiased`}>
         {/* Schema JSON-LD */}
@@ -104,11 +106,14 @@ export default function RootLayout({
         {/* CHILDREN */}
         {children}
 
-        {process.env.NEXT_PUBLIC_TAWK_ENABLED && <Tawk />}
-
         {/* VERCEL */}
-        <SpeedInsights />
-        <Analytics />
+        {process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? (
+          <>
+            {process.env.NEXT_PUBLIC_TAWK_ENABLED && <Tawk />}
+            <SpeedInsights />
+            <Analytics />
+          </>
+        ) : null}
       </body>
     </html>
   );

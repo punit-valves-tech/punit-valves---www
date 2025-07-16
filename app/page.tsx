@@ -48,7 +48,6 @@ export default async function Home() {
       {/* LOGO CLOUD */}
       <LogoCloud />
 
-      {/* PRODUCT CATALOG */}
       <ProductCatalog />
       <Carousel products={products} />
 

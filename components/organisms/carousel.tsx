@@ -27,15 +27,15 @@ export const Carousel = ({ products }: any) => {
             <Link
               href={`/products/${o?.slug}`}
               key={i}
-              className="embla__slide border border-[var(--grid-color)] hover:border-black bg-white drop-shadow-xl flex flex-col"
+              className="w-[18rem] embla__slide bg-white border border-[var(--grid-color)] hover:border-black drop-shadow-xl flex flex-col"
             >
-              <div className="aspect-square w-[20rem] m-4 border border-[var(--grid-color)] bg-[var(--grid-color)] overflow-hidden">
+              <div className="aspect-square w-full p-4">
                 <Image
                   alt={o?.name}
                   src={o?.image}
                   width="640"
                   height="640"
-                  className="object-cover h-full"
+                  className="border border-[var(--grid-color)] object-cover w-full aspect-square"
                 />
               </div>
               <div className="pb-4 flex flex-col flex-grow w-full">

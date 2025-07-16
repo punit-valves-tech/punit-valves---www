@@ -7,7 +7,7 @@ import { Suspense } from "react";
 import { Notification } from "./notification";
 
 export const Header = () => (
-  <header className="z-[10] drop-shadow-xl md:drop-shadow-none top-0 sticky bg-white/80 backdrop-blur-xl flex flex-col w-full border-b border-b-[var(--grid-color)]">
+  <header className="z-[10] drop-shadow-xl md:drop-shadow-none top-0 sticky bg-white/70 backdrop-blur-xl flex flex-col w-full border-b border-b-[var(--grid-color)]">
     <div className="w-full h-20 m-auto max-w-6xl px-4 flex flex-row justify-between items-center">
       <Link className="h-16 w-44" href="/">
         <Image

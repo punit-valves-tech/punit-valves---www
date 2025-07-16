@@ -11,7 +11,7 @@ const articleFields = /* groq */ `
   publishedAt,
   lastUpdatedAt,
   category->,
-  tags->,
+  tags[]-> {title},
   "author": author->{_id, name, image},
   "plaintextBody": pt::text(body)
 `;
@@ -59,6 +59,7 @@ export const productQuery = defineQuery(`
       name,
       class-> { "slug": slug.current, title },
       image,
+      images,
       desc,
       specs
     }
