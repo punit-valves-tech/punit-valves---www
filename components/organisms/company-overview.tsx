@@ -53,5 +53,5 @@ const STATS = [
   { stat: "25+", desc: "Years of experience" },
   { stat: "100+", desc: "Clients satisfied" },
   { stat: "24K+", desc: "Units / Year" },
-  { stat: "5+", desc: "Export States" },
+  { stat: "5+", desc: "Supply to States" },
 ]

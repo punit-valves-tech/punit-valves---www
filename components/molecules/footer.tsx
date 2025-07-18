@@ -7,8 +7,8 @@ export const Footer = () => (
   <>
     <Section contained={false}>
       <footer className="bg-white border-t border-t-[var(--grid-color)]">
-        <div className="w-full h-full m-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-2 gap-y-16 py-10">
-          <div className="">
+        <div className="w-full h-full m-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-2 gap-y-16 py-10 pb-56">
+          <div className="flex flex-col gap-8">
             <Link className="" href="/">
               <Image
                 width="401"
@@ -18,6 +18,20 @@ export const Footer = () => (
                 alt="Punit Valves Logo"
               />
             </Link>
+            {/* <Image
+              className="px-1 w-72"
+              width="5732"
+              height="365"
+              alt=""
+              src="/miracle.png"
+            /> */}
+            {/* <Image
+            className="px-1 w-72"
+            width="4752"
+            height="447"
+            alt=""
+            src="/miracle-02.png"
+          /> */}
           </div>
           <div className="grid grid-cols-2 gap-y-16 px-4">
             <div className="flex flex-col">
@@ -65,6 +79,22 @@ export const Footer = () => (
     </Section>
     <Section contained={false}>
       <div className="bg-white border-y border-y-[var(--grid-color)] w-full">
+        {/* <div className="absolute z-[-10] w-full h-0 flex flex-col items-center"> */}
+          {/* <Image
+            className="m-auto px-4 max-w-6xl w-full -translate-y-14"
+            width="5732"
+            height="365"
+            alt=""
+            src="/miracle.png"
+          /> */}
+          {/* <Image
+            className="m-auto px-4 max-w-6xl w-full -translate-y-20"
+            width="4752"
+            height="447"
+            alt=""
+            src="/miracle-02.png"
+          /> */}
+        {/* </div> */}
         <div className="m-auto max-w-6xl flex flex-col md:flex-row justify-between py-8 px-4">
           <Text
             as="p"
@@ -100,6 +130,7 @@ const QUICK_LINKS = [
   { label: "QUICK LINKS" },
   { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
+  { label: "Events", href: "/events" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -108,7 +139,10 @@ const SOCIALS = [
   { label: "SOCIALS" },
   // { label: "Facebook", href: "/" },
   // { label: "Instagram", href: "/" },
-  { label: "Youtube", href: "https://www.youtube.com/channel/UCCyo4GQzDu1dnjXD-GwdZCQ" },
+  {
+    label: "Youtube",
+    href: "https://www.youtube.com/channel/UCCyo4GQzDu1dnjXD-GwdZCQ",
+  },
   // { label: "X (Twitter)", href: "/" },
 ];
 
