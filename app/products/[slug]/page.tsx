@@ -27,17 +27,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     sanityFetch({ query: productQuery, params }),
   ]);
 
+  const title = `${product.name} — Punit Valves`;
+  const description = `Discover Punit Valves’ ${product.name}, engineered for durability and precision in diverse applications.`;
+  const pathname = `/products/${(await params)?.slug}`;
+
   return {
-    title: product.name,
-    description: `Discover Punit Valves’ ${product.name}, engineered for durability and precision in diverse applications.`,
+    title,
+    description,
     metadataBase: new URL(ORIGIN),
     alternates: {
-      canonical: `/products/${(await params)?.slug}`,
+      canonical: pathname,
     },
     openGraph: {
-      title: product.name,
-      description: `Discover Punit Valves’ ${product.name}, engineered for durability and precision in diverse applications.`,
-      url: `${ORIGIN}/products/${(await params)?.slug}`,
+      title,
+      description,
+      url: `${ORIGIN}${pathname}`,
       siteName: "Punit Industrial Valves",
       images: [
         {

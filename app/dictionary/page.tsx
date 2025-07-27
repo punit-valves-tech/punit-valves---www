@@ -22,7 +22,7 @@ export const revalidate = 0;
 export const metadata: Metadata = {
   title: "Punit Valves — Valves Dictionary: Visual Sitemap",
   description:
-    "Streamline your search on Punit Valves' site with this dictionary featuring visual sitemaps and links to all products, events, articles, brochures, and resources. Unlock global valve expertise for 10X growth in industrial applications",
+    "Streamline your search on Punit Valves' site with our dictionary featuring visual sitemap and links to all products, events, articles, brochures, and resources",
   metadataBase: new URL(ORIGIN),
   alternates: {
     canonical: `/dictionary`,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Punit Valves - Valves Dictionary: Visual Sitemap",
     description:
-      "Streamline your search on Punit Valves' site with this dictionary featuring visual sitemaps and links to all products, events, articles, brochures, and resources. Unlock global valve expertise for 10X growth in industrial applications",
+      "Streamline your search on Punit Valves' site with our dictionary featuring visual sitemap and links to all products, events, articles, brochures, and resources",
     url: `/dictionary`,
     siteName: "Punit Industrial Valves",
     images: [

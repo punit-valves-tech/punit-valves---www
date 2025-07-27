@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { data: article } = await sanityFetch({ query: articleQuery, params });
 
   const title = article.title;
-  const description = article.plaintextBody.slice(0, 200);
+  const description = `${article.plaintextBody.slice(0, 155)}...`;
   const pathname = `/blog/${(await params)?.slug}`;
 
   return {

@@ -36,8 +36,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     sanityFetch({ query: productQuery, params: { slug, class: productClass } }),
   ]);
 
-  const title = product.name;
-  const description = `${product.class.title} — ${product.name} — Punit Valves`;
+  const title = `${product.name} — Punit Valves`;
+  const description = `${product.class.title} — ${product.name} — Discover Punit Valves, engineered for precision, control and reliability.`;
   const pathname =  `/${productClass}/${slug}`;
 
   return {
@@ -218,7 +218,7 @@ export default async function ProductPage(props: any) {
             <div className="py-20 border-t border-t-[var(--grid-color)]">
               <Headline
                 label={product?.class?.title?.toUpperCase()}
-                titleAs="h1"
+                titleAs="h2"
                 title={<>RELATED VALVES</>}
                 desc={
                   <>
