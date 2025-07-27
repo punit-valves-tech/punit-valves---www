@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default async function ArticlePage(props: any) {
+export default async function ProductPage(props: any) {
   const params = await props.params;
   const [{ data: product }] = await Promise.all([
     sanityFetch({ query: productQuery, params }),
@@ -74,6 +74,11 @@ export default async function ArticlePage(props: any) {
           brand: {
             "@type": "Brand",
             name: "Punit Valves",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: 4.4,
+            reviewCount: 55,
           },
           sku: `#REF${product._id.substr(1, 4)}`,
         }}
