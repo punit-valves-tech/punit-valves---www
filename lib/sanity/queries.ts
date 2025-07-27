@@ -42,13 +42,31 @@ export const allProductsQuery = defineQuery(`
 
 export const allArticleSlugsQuery = defineQuery(`
     *[_type == "article" && defined(slug.current)] | order(date desc, _updatedAt desc) {
-      "slug": slug.current
+      "slug": slug.current,
+      lastUpdatedAt
     }
   `);
 
 export const allProductSlugsQuery = defineQuery(`
     *[_type == "product" && defined(slug.current)] | order(date desc, _updatedAt desc) {
-      "slug": slug.current
+      "slug": slug.current,
+      "lastUpdatedAt": _updatedAt
+    }
+  `);
+
+export const allEventsSlugsQuery = defineQuery(`
+    *[_type == "event" && defined(slug.current)] | order(date desc, _updatedAt desc) {
+      "slug": slug.current,
+      "lastUpdatedAt": _updatedAt
+    }
+  `);
+
+export const allProductsWithClassSlugsQuery = defineQuery(`
+    *[_type == "product" && defined(slug.current)] | order(date desc, _updatedAt desc) {
+      "title": name,
+      "slug": slug.current,
+      "productClass": class->slug.current,
+      "lastUpdatedAt": _updatedAt
     }
   `);
 
@@ -64,6 +82,32 @@ export const productQuery = defineQuery(`
       specs
     }
   `);
+
+export const classAndProductQuery = defineQuery(`
+  *[_type == "product" && slug.current == $slug && class->slug.current == $class] [0] {
+    "slug": slug.current,
+    _id,
+    name,
+    class-> { "slug": slug.current, title },
+    image,
+    images,
+    desc,
+    specs
+  }
+`);
+
+export const classProductsQuery = defineQuery(`
+  *[_type == "product" && class->slug.current == $class && slug.current != $slug] | order(order asc) {
+    "slug": slug.current,
+    _id,
+    name,
+    class-> { "slug": slug.current, title },
+    "image": image.asset->url,
+    images,
+    desc,
+    specs
+  }
+`);
 
 export const eventQuery = defineQuery(`
     *[_type == "event" && slug.current == $slug] [0] {

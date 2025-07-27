@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ORIGIN } from "@/lib/content/constants";
 import { sanityFetch } from "@/lib/sanity/live";
-import { allArticleSlugsQuery, allProductSlugsQuery } from "@/lib/sanity/queries";
+import { allArticleSlugsQuery, allEventsSlugsQuery, allProductSlugsQuery, allProductsWithClassSlugsQuery } from "@/lib/sanity/queries";
 import type { MetadataRoute } from "next";
 
 const route = (
@@ -11,7 +11,7 @@ const route = (
 //   priority?: any
 ) => ({
   url: `${ORIGIN}${url}`,
-  lastModified: lastModified ?? new Date(),
+  lastModified: lastModified,
 //   changeFrequency: changeFrequency ?? "yearly",
 //   priority: priority ?? 1,
 });
@@ -19,11 +19,19 @@ const route = (
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routeArticles = (
     await sanityFetch({ query: allArticleSlugsQuery })
-  ).data.map((o: any) => route(`/blog/${o.slug}`));
+  ).data.map((o: any) => route(`/blog/${o.slug}`, o?.lastUpdatedAt));
 
   const routeProducts = (
     await sanityFetch({ query: allProductSlugsQuery })
-  ).data.map((o: any) => route(`/products/${o.slug}`));
+  ).data.map((o: any) => route(`/products/${o.slug}`, o?.lastUpdatedAt));
+
+  const routeEvents = (
+    await sanityFetch({ query: allEventsSlugsQuery })
+  ).data.map((o: any) => route(`/events/${o.slug}`, o?.lastUpdatedAt));
+
+  const routeClassAndProducts = (
+    await sanityFetch({ query: allProductsWithClassSlugsQuery })
+  ).data.map((o: any) => route(`/${o?.productClass}/${o?.slug}`, o?.lastUpdatedAt));
 
   return [
     route("/"),
@@ -36,5 +44,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     route("/blog"),
     ...routeArticles,
+
+    route("/events"),
+    ...routeEvents,
+
+    // SEO
+    route("/dictionary"),
+    
+    // Programmatic SEO
+    ...routeClassAndProducts
+    // TODO: Best <Product Class> Valve Manufacturer
   ];
 }

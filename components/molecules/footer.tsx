@@ -150,4 +150,5 @@ const RESOURCES = [
   { label: "RESOURCES" },
   { label: "Blog", href: "/blog" },
   { label: "Brochure", href: "/brochure" },
+  { label: "Dictionary", href: "/dictionary" },
 ];
