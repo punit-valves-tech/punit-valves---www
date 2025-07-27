@@ -65,6 +65,21 @@ export const productQuery = defineQuery(`
     }
   `);
 
+export const eventQuery = defineQuery(`
+    *[_type == "event" && slug.current == $slug] [0] {
+      "slug": slug.current,
+      _id,
+      title,
+      "desc": description,
+      coverImage,
+      images,
+      dateTime,
+      location,
+      link,
+      body,
+    }
+  `);
+
 export const notificationQuery = defineQuery(
   `*[_type == "notification" && expiryDate > now()][0]`
 );
@@ -73,9 +88,8 @@ export const allEventsQuery = defineQuery(`
   *[_type == "event" && defined(slug.current)] | order(dateTime desc) {
     title,
     description,
-    coverImage,
     dateTime,
     location,
-    link
+    "slug": slug.current,
   }
 `);

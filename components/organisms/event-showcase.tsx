@@ -36,9 +36,9 @@ const EventCarousel = ({ event }: any) => {
         {event?.images?.map((o: any, i: any) => (
           <div 
           key={i}
-          className="embla__slide flex flex-col min-w-[100%]">
+          className="embla__slide flex flex-col min-w-fit">
             <Image
-              className="p-4 border border-[var(--grid-color)] drop-shadow-xl bg-white rounded-xs h-[40rem] w-full object-cover"
+              className="p-4 border border-[var(--grid-color)] drop-shadow-xl bg-white rounded-xs h-[40rem] w-auto object-cover"
               src={o?.src}
               alt={o?.alt}
               width={1280}

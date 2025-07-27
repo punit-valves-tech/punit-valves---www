@@ -7,7 +7,7 @@ import Section from "@/components/utils/section";
 import { ORIGIN } from "@/lib/content/constants";
 import { sanityFetch } from "@/lib/sanity/live";
 import { allEventsQuery } from "@/lib/sanity/queries";
-import { formatDate } from "@/lib/utils";
+import { formatDateTime } from "@/lib/utils";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -78,8 +78,7 @@ const EventsPage = async () => {
           {events.map((o: any, i: any) => (
             <Link
               key={i}
-              href={o?.link ?? ""}
-              target={o?.link?.startWith?.("http") ? "_blank" : "_self"}
+              href={`/events/${o.slug}`}
               className="w-full hover:bg-white hover:border! hover:border-black! hover:drop-shadow-2xl! border border-transparent border-t border-t-[var(--grid-color)] nth-last-2:border-b nth-last-2:border-b-[var(--grid-color)] last:border-b last:border-b-[var(--grid-color)]"
             >
               <div className="h-72 flex flex-col bg-white mx-1 px-3 py-4">
@@ -99,7 +98,7 @@ const EventsPage = async () => {
                     font="inter"
                     className="text-[var(--secondary-color)] font-medium tracking-normal"
                   >
-                    {formatDate(o.dateTime)} /{" "}
+                    {formatDateTime(o.dateTime)} /{" "}
                     <span className="text-red-700">Trade Show</span>
                   </Text>
                 </div>

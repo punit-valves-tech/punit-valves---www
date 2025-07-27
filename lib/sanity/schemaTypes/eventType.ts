@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const eventType = defineType({
   name: "event",
@@ -61,8 +61,8 @@ export const eventType = defineType({
       title: "Date and Time",
       type: "datetime",
       options: {
-        dateFormat: "YYYY-MM-DD",
-        timeFormat: "HH:mm",
+        dateFormat: "DD MMM YYYY",
+        timeFormat: "hh:mm A",
         timeStep: 15,
       },
       validation: (Rule) => Rule.required(),
@@ -75,6 +75,32 @@ export const eventType = defineType({
       validation: (Rule) => Rule.required(),
       description:
         "Specify if the event is physical or virtual and provide relevant details.",
+    }),
+    defineField({
+      name: "body",
+      type: "blockContent",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "images",
+      type: "array",
+      of: [
+        defineArrayMember({
+          name: "image",
+          type: "image",
+          validation: (rule) => rule.required(),
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            defineField({
+              name: "alt",
+              type: "string",
+              title: "Alternative text",
+            }),
+          ],
+        }),
+      ],
     }),
   ],
   preview: {

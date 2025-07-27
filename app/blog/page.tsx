@@ -6,7 +6,7 @@ import Section from "@/components/utils/section";
 import { ORIGIN } from "@/lib/content/constants";
 import { sanityFetch } from "@/lib/sanity/live";
 import { allArticlesQuery } from "@/lib/sanity/queries";
-import { formatDate } from "@/lib/utils";
+import { formatDateTime } from "@/lib/utils";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -89,7 +89,7 @@ export default async function BlogPage() {
                     font="inter"
                     className="text-[var(--secondary-color)] font-medium tracking-normal"
                   >
-                    {formatDate(o.lastUpdatedAt)} /{" "}
+                    {formatDateTime(o.lastUpdatedAt)} /{" "}
                     <span className="text-red-700">{o?.category?.title}</span>
                   </Text>
                 </div>
