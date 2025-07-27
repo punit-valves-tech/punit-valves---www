@@ -23,19 +23,23 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const [{ data: article }] = await Promise.all([
-    sanityFetch({ query: articleQuery, params }),
-  ]);
+  const { data: article } = await sanityFetch({ query: articleQuery, params });
+
+  const title = article.title;
+  const description = article.plaintextBody.slice(0, 200);
+  const pathname = `/blog/${(await params)?.slug}`;
 
   return {
-    title: article.title,
+    title,
+    description,
     metadataBase: new URL(ORIGIN),
     alternates: {
-      canonical: `/blog/${(await params)?.slug}`,
+      canonical: pathname,
     },
     openGraph: {
-      title: article.title,
-      url: `${ORIGIN}/blog/${(await params)?.slug}`,
+      title,
+      description,
+      url: `${ORIGIN}${pathname}`,
       siteName: "Punit Industrial Valves",
       images: [
         {
@@ -70,7 +74,8 @@ export default async function ArticlePage(props: any) {
           mainEntityOfPage: `${ORIGIN}/blog/${(await params)?.slug}`,
           headline: article.title,
           name: article.title,
-          // description: "",
+          description: article.plaintextBody.slice(0, 200),
+          articleBody: article.plaintextBody,
           datePublished: article.publishedAt,
           dateModified: article.lastUpdatedAt,
           author: {

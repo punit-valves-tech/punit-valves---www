@@ -29,14 +29,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: product.name,
-    description: `Discover Punit Valves’ ${product.name}, engineered for durability and precision in diverse applications. Ideal for Industrial Applications, contact us for Global Solutions`,
+    description: `Discover Punit Valves’ ${product.name}, engineered for durability and precision in diverse applications.`,
     metadataBase: new URL(ORIGIN),
     alternates: {
       canonical: `/products/${(await params)?.slug}`,
     },
     openGraph: {
       title: product.name,
-      description: `Discover Punit Valves’ ${product.name}, engineered for durability and precision in diverse applications. Ideal for Industrial Applications, contact us for Global Solutions`,
+      description: `Discover Punit Valves’ ${product.name}, engineered for durability and precision in diverse applications.`,
       url: `${ORIGIN}/products/${(await params)?.slug}`,
       siteName: "Punit Industrial Valves",
       images: [
