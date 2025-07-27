@@ -85,7 +85,7 @@ export default async function ProductPage(props: any) {
           "@type": "Product",
           name: product.name,
           image: `https://www.punitvalves.com/_next/image?url=${encodeURI(urlFor(product.image).url())}&w=3840&q=75`,
-          description: product?.desc,
+          description: product?.plaintextBody,
           brand: {
             "@type": "Brand",
             name: "Punit Valves",

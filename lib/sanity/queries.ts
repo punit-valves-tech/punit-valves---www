@@ -79,7 +79,8 @@ export const productQuery = defineQuery(`
       image,
       images,
       desc,
-      specs
+      specs,
+      "plaintextBody": pt::text(desc)
     }
   `);
 
