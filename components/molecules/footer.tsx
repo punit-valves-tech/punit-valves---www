@@ -7,7 +7,7 @@ export const Footer = () => (
   <>
     <Section contained={false}>
       <footer className="bg-white border-t border-t-[var(--grid-color)]">
-        <div className="w-full h-full m-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-2 gap-y-16 py-10 pb-56">
+        <div className="w-full h-full m-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-2 gap-y-16 pt-10 pb-40">
           <div className="flex flex-col gap-8">
             <Link className="" href="/">
               <Image
