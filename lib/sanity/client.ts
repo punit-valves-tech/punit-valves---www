@@ -8,7 +8,7 @@ const dataset = "production";
 export const sanityClientSide = createClient({
   projectId,
   dataset,
-  apiVersion: '2023-05-03',
+  apiVersion: '2025-02-06',
   useCdn: process.env.NODE_ENV === 'production',
 });
 
