@@ -16,7 +16,8 @@ const fetcher = sanityClientSide
 
 export const Notification = () => {
   const notification = use(fetcher);
-  return <NotificationBanner notification={notification} />;
+  
+  return Boolean(notification) ? <NotificationBanner notification={notification} /> : null;
 };
 
 export const NotificationBanner = ({ notification }: any) => {
