@@ -11,6 +11,7 @@ import { formatDateTime } from "@/lib/utils";
 import { Metadata } from "next";
 import Link from "next/link";
 
+
 export const dynamic = "force-dynamic";
 
 export const revalidate = 0;
@@ -44,6 +45,17 @@ const EventsPage = async () => {
   const [{ data: events }] = await Promise.all([
     sanityFetch({ query: allEventsQuery }),
   ]);
+
+  // divide events into past and upcoming events
+  const now = new Date();
+  const pastEvents = events.filter(
+    (o:any) => new Date(o.dateTime) < now
+  );
+
+  const upcomingEvents = events.filter(
+    (o:any) => new Date(o.dateTime) >= now
+  );
+  
   return (
     <Page>
       <Section>
@@ -62,6 +74,8 @@ const EventsPage = async () => {
           />
         </div>
       </Section>
+      
+      {upcomingEvents.length > 0 ? (<>
       <Section>
         <div className="py-20">
           <Headline
@@ -75,7 +89,7 @@ const EventsPage = async () => {
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-          {events.map((o: any, i: any) => (
+          {upcomingEvents.map((o: any, i: any) => (
             <Link
               key={i}
               href={`/events/${o.slug}`}
@@ -136,7 +150,10 @@ const EventsPage = async () => {
             </Link>
           ))}
         </div>
-      </Section>
+      </Section> </>) : <></>}
+
+
+      
       <Section>
         <div className="py-20">
           <Headline
@@ -145,6 +162,71 @@ const EventsPage = async () => {
             title={<>Past Events</>}
             desc={<></>}
           />
+        </div>
+      </Section>
+      <Section>
+        <div className="grid grid-cols-1 md:grid-cols-2 pb-20">
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+          {pastEvents.map((o: any, i: any) => (
+            <Link
+              key={i}
+              href={`/events/${o.slug}`}
+              className="w-full hover:bg-white hover:border! hover:border-black! hover:drop-shadow-2xl! border border-transparent border-t border-t-[var(--grid-color)] nth-last-2:border-b nth-last-2:border-b-[var(--grid-color)] last:border-b last:border-b-[var(--grid-color)]"
+            >
+              <div className="h-72 flex flex-col bg-white mx-1 px-3 py-4">
+                <div className="w-full flex flex-row items-center">
+                  <Text
+                    as="p"
+                    scale="p3"
+                    font="inter"
+                    className="text-[var(--secondary-color)] font-medium tracking-normal"
+                  >
+                    {o?.location}
+                  </Text>
+                  <div className="flex-grow" />
+                  <Text
+                    as="p"
+                    scale="p3"
+                    font="inter"
+                    className="text-[var(--secondary-color)] font-medium tracking-normal"
+                  >
+                    {formatDateTime(o.dateTime)} /{" "}
+                    <span className="text-red-700">Trade Show</span>
+                  </Text>
+                </div>
+                <div className="flex-grow" />
+                <div className="flex flex-row gap-4">
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                  {o?.tags?.map((t: any, i: any) => (
+                    <Text
+                      key={i}
+                      scale="p3"
+                      font="ibm-plex"
+                      className="py-2 tracking-normal uppercase text-[var(--primary-color)]"
+                    >
+                      #{t?.title}
+                    </Text>
+                  ))}
+                </div>
+                <Text
+                  as="h2"
+                  scale="h7"
+                  font="inter"
+                  className="pr-8 font-semibold tracking-normal"
+                >
+                  {o.title}
+                </Text>
+                <Text
+                  as="p"
+                  scale="p1"
+                  font="inter"
+                  className="pr-8 mt-2 text-[var(--secondary-color)] font-medium tracking-normal truncate"
+                >
+                  {o.description}
+                </Text>
+              </div>
+            </Link>
+          ))}
         </div>
       </Section>
       <Events events={PAST_EVENTS} />

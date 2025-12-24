@@ -63,7 +63,7 @@ export default async function ArticlePage(props: any) {
   //   if (!product?._id) {
   //     return notFound();
   //   }
-
+  const isPastEvent = new Date(event?.dateTime) < new Date();  
   return (
     <Page>
       {/* <StructuredData
@@ -127,7 +127,7 @@ export default async function ArticlePage(props: any) {
               </div>
             </div>
             <div className="flex-grow" />
-            <div className="my-6 flex flex-col md:flex-row gap-4">
+            {!isPastEvent ? (<div className="my-6 flex flex-col md:flex-row gap-4">
               <Button type="primary" href="#luma-iframe">
                 REGISTER NOW <TicketIcon className="ml-2 h-4 -mr-2 item-end" />
               </Button>
@@ -135,7 +135,8 @@ export default async function ArticlePage(props: any) {
                 INQUIRE NOW{" "}
                 <ArrowRightIcon className="ml-2 h-4 -mr-2 item-end" />
               </Button> */}
-            </div>
+            </div>) : <></>}
+            
             {/* <div className="flex-grow min-h-20"></div> */}
           </div>
           <div className="m-2 bg-white">
@@ -185,7 +186,7 @@ export default async function ArticlePage(props: any) {
       {event?.images?.length > 0 ? <Events events={event?.images} /> : <></>}
 
       {/* EVENT REGISTER */}
-      {event?.link ? (
+      {!isPastEvent ? (
         <Section>
           <div className="grid grid-cols-1 md:grid-cols-2 border-y border-y-[var(--grid-color)]">
             <div className="px-4 py-8">
